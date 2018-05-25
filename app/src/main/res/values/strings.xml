@@ -78,6 +78,12 @@
         <item>Photography</item>
         <item>Videography</item>
     </string-array>
+    
+    <string-array name="function_array">
+        <item>Please Select The Required Function *</item>
+        <item>Bethrothal</item>
+        <item>Wedding</item>
+    </string-array>
 
 
     <string-array name="mode_of_delivery_array">
