@@ -1,0 +1,374 @@
+{
+  "project_info": {
+    "project_number": "594642547675",
+    "firebase_url": "https://tamil-58af7.firebaseio.com",
+    "project_id": "tamil-58af7",
+    "storage_bucket": "tamil-58af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:62e7b033cf5e28cf",
+        "android_client_info": {
+          "package_name": "com.padhuga.hishanth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-rkf4oot5datprc9girsiq7mfa99ib78s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.hishanth",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:296076fc393b60a6",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:69085b72cd57ad85",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.illakanam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-6bl2cgnb5hr30bg1cb4m5fubotu7tvr3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.illakanam",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:34cf51146374780e",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.illakiyam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-rs55bdrgq98qor8akdlnh5a8mp3oppp9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.illakiyam",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:654d5686b3a314b2",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.isai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-j0j08n5j67ilv8pm3sp81p9qqda0s150.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.isai",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:012bfa3de4cabc21",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.kalaigal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-0v0atn76uhroqc2ker3lher21tnur5gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.kalaigal",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:7d73d9d3dcd5065e",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.nadagam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-al9t6k8mbq5k4oevsb23b6pr0h6278h8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.nadagam",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594642547675:android:72a45b58d76b3cd5",
+        "android_client_info": {
+          "package_name": "com.padhuga.tamil.vilayaatu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594642547675-bs5qi3bu7d1792kdni5aek0vhibrq70p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.padhuga.tamil.vilayaatu",
+            "certificate_hash": "ce2bb0e1ca58552e8e776c974d30a79300db0f9a"
+          }
+        },
+        {
+          "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJAUGy9Ptj6ch-E_XgpBFIBS7T6TAVbLI"
+        },
+        {
+          "current_key": "AIzaSyBjbTOXVid8UoVpzL_CLCboAUTBSiAMIAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594642547675-5623dvv2isubih4mf35k6sp3k6lii9au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTabLayout">#4186be</color>
+    <color name="colorTabIndicatorColor">#D4AF37</color>
+    <color name="colorTabSelectedTextColor">#E1BEE7</color>
+    <color name="colorAboutUsFragment">#adcbe3</color>
+    <color name="colorRegistrationFragment">#adcbe3</color>
+    <color name="colorContactUsFragment">#adcbe3</color>
+    <color name="colorHelpFragment">#adcbe3</color>
+    <color name="colorPackagesFragment">#adcbe3</color>
+</resources>

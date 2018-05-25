@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">Hishanth Photography</string>
+    <string name="ad_id">ca-app-pub-2373003321681741~7281773351</string>
+    <string name="name">Please Enter Your Name *</string>
+    <string name="address">Please Enter Your Address *</string>
+    <string name="locality">Please Enter Your Locality *</string>
+    <string name="city">Please Select Your City *</string>
+    <string name="pincode">Please Enter Your PinCode *</string>
+    <string name="mobile">Please Enter Your Mobile Number *</string>
+    <string name="email">Please Enter Your Email ID *</string>
+    <string name="services">Please Select The Required Service *</string>
+    <string name="date">Please Select the Date Of Function *</string>
+    <string name="delivery_mode">Please Select the Mode Of Delivery *</string>
+    <string name="submit">Submit</string>
+    <string name="reset">Reset Values</string>
+    <string name="name_error">You did not enter the Name</string>
+    <string name="address_error">You did not enter the Address</string>
+    <string name="locality_error">You did not enter the Locality</string>
+    <string name="city_error">You did not enter the City</string>
+    <string name="pincode_error">You did not enter the PinCode</string>
+    <string name="mobile_error">You did not enter the Mobile Number</string>
+    <string name="email_error">You did not enter the Email ID</string>
+    <string name="date_error">You did not enter the Function Date</string>
+    <string name="end_date_error">You did not enter the Function End Date</string>
+    <string name="price">Overall Service Charge would be : </string>
+    <string name="tax">Overall Tax would be : </string>
+    <string name="discount">Overall Discount would be : </string>
+    <string name="final_price">Overall Final Price would be : </string>
+    <string name="about_us1">Your Event will be Covered by a dedicated Photography and Videography team that understands the importance of a Wedding.</string>
+    <string name="about_us2">Every event is treated as our own event and hence atmost care is given to every aspect of the event to make it very special and unique.</string>
+    <string name="about_us3">We believe in referral clients and work to the utmost satisfaction of our client and their near and dear.</string>
+    <string name="help">Help</string>
+    <string name="main_text">Expertise in Digital Media</string>
+    <string name="sub_text">Feel free to ask Customized package which match your budget. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="packages">Packages</string>
+
+
+    <string-array name="city_array">
+        <item>Please Select Your City *</item>
+        <item>Ariyalur</item>
+        <item>Chennai</item>
+        <item>Coimbatore</item>
+        <item>Cuddalore</item>
+        <item>Dharmapuri</item>
+        <item>Dindigul</item>
+        <item>Erode</item>
+        <item>Kanchipuram</item>
+        <item>Kanyakumari</item>
+        <item>Karur</item>
+        <item>Krishnagiri</item>
+        <item>Madurai</item>
+        <item>Nagapattinam</item>
+        <item>Namakkal</item>
+        <item>Perambalur</item>
+        <item>Pudukkottai</item>
+        <item>Ramanathapuram</item>
+        <item>Salem</item>
+        <item>Sivagangai</item>
+        <item>Thanjavur</item>
+        <item>The Nilgiris</item>
+        <item>Theni</item>
+        <item>Thoothukudi</item>
+        <item>Tiruchirappalli</item>
+        <item>Tirunelveli</item>
+        <item>Tiruppur</item>
+        <item>Tiruvallur</item>
+        <item>Tiruvannamalai</item>
+        <item>Tiruvarur</item>
+        <item>Vellore</item>
+        <item>Viluppuram</item>
+        <item>Virudhunagar</item>
+    </string-array>
+
+
+    <string-array name="service_array">
+        <item>Please Select The Required Service *</item>
+        <item>Photography</item>
+        <item>Videography</item>
+    </string-array>
+
+
+    <string-array name="mode_of_delivery_array">
+        <item>Please Select the Mode Of Delivery *</item>
+        <item>Self Collection</item>
+        <item>Door Delivery</item>
+    </string-array>
+
+</resources>
