@@ -12,4 +12,16 @@
     <color name="colorContactUsFragment">#adcbe3</color>
     <color name="colorHelpFragment">#adcbe3</color>
     <color name="colorPackagesFragment">#adcbe3</color>
+    <color name="colorCardViewText">#36688d</color>
+    <color name="colorToUse">#6a8a82</color>
+    <color name="colorToUse1">#a79674</color>
+    <color name="colorToUse2">#aba6bf</color>
+    <color name="colorToUse3">#595775</color>
+    <color name="colorToUse4">#bf988f</color>
+    <color name="colorToUse5">#525b56</color>
+    <color name="colorToUse6">#a4978e</color>
+    <color name="colorToUse7">#dbb4da</color>
+    <color name="colorToUse8">#a4a4bf</color>
+    <color name="colorToUse9">#81a3a7</color>
+    <color name="colorToUse10">#bfafa0</color>
 </resources>

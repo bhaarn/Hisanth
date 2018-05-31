@@ -1,13 +1,17 @@
 package com.padhuga.hishanth;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,17 +21,16 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
-       // implements AppBarLayout.OnOffsetChangedListener {
 
-  /*  private ImageView mProfileImage;
-    private int mMaxScrollSize;
-
-    private static final int PERCENTAGE_TO_ANIMATE_AVATAR = 20;
-    private boolean mIsAvatarShown = true;*/
-
-    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
-    private static final int REQUEST_READ_PHONE_STATE = 1;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    public static boolean all_permission = false;
+    Utils utils;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,77 +38,76 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TabLayout tabLayout = findViewById(R.id.materialup_tabs);
         ViewPager viewPager = findViewById(R.id.viewPager);
-      /*  AppBarLayout appbarLayout = findViewById(R.id.materialup_appbar);
-        mProfileImage = findViewById(R.id.materialup_profile_image);
-
-        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-       appbarLayout.addOnOffsetChangedListener(this);
-        mMaxScrollSize = appbarLayout.getTotalScrollRange();*/
         tabLayout.setupWithViewPager(viewPager);
         FragmentPagerAdapter fragmentPagerAdapter = new pagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);
         initializeAds(this);
+        utils = new Utils(this);
+        if (checkAndRequestPermissions()) {
+            all_permission = true;
+        }
     }
 
- /*   @Override
-    public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
-        if (mMaxScrollSize == 0)
-            mMaxScrollSize = appBarLayout.getTotalScrollRange();
-
-        int percentage = (Math.abs(i)) * 100 / mMaxScrollSize;
-
-        if (percentage >= PERCENTAGE_TO_ANIMATE_AVATAR && mIsAvatarShown) {
-            mIsAvatarShown = false;
-
-            mProfileImage.animate()
-                    .scaleY(0).scaleX(0)
-                    .setDuration(200)
-                    .start();
+    private boolean checkAndRequestPermissions() {
+        int permissionSendMessage = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS);
+        int permissionCallPhone = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        if (permissionCallPhone != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CALL_PHONE);
         }
-
-        if (percentage <= PERCENTAGE_TO_ANIMATE_AVATAR && !mIsAvatarShown) {
-            mIsAvatarShown = true;
-
-            mProfileImage.animate()
-                    .scaleY(1).scaleX(1)
-                    .start();
+        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
         }
-    }*/
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_SEND_SMS: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                 /*   SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+919790495863", null, RegistrationFragment.details, null, null);*/
+            case REQUEST_ID_MULTIPLE_PERMISSIONS: {
 
-                    /* 	Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-	                    sendIntent.putExtra("sms_body", "default content");
-	                    sendIntent.setType("vnd.android-dir/mms-sms");
-	                    startActivity(sendIntent);*/
-
-                    Toast.makeText(this, "SMS sent.", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(this, "SMS failed, please try again.", Toast.LENGTH_LONG).show();
-                    return;
+                Map<String, Integer> perms = new HashMap<>();
+                perms.put(Manifest.permission.SEND_SMS, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.CALL_PHONE, PackageManager.PERMISSION_GRANTED);
+                if (grantResults.length > 0) {
+                    for (int i = 0; i < permissions.length; i++)
+                        perms.put(permissions[i], grantResults[i]);
+                    if (perms.get(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED
+                            && perms.get(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                        all_permission = true;
+                    } else {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                            utils.showDialogOK("To send to the Owner after you successfully submit your request, SMS Permission is required \n To Call the Owner as soon as you " +
+                                            "click the mobile number, Call permission is required.",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                case DialogInterface.BUTTON_POSITIVE:
+                                                    checkAndRequestPermissions();
+                                                    break;
+                                                case DialogInterface.BUTTON_NEGATIVE:
+                                                    break;
+                                            }
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG)
+                                    .show();
+                            finish();
+                        }
+                    }
                 }
             }
-            case REQUEST_READ_PHONE_STATE:
-                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    //TODO
-                }
-                break;
-            default:
-                break;
         }
+
     }
 
     void initializeAds(Activity activity) {

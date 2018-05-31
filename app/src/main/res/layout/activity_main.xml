@@ -6,10 +6,9 @@
     tools:context="com.padhuga.hishanth.MainActivity">
 
     <include
-        android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -17,8 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/app_bar_main"
+        android:layout_alignParentTop="true"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-2373003321681741/8243501230">
     </com.google.android.gms.ads.AdView>

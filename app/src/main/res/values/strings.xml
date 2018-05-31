@@ -33,7 +33,14 @@
     <string name="main_text">Expertise in Digital Media</string>
     <string name="sub_text">Feel free to ask Customized package which match your budget. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
     <string name="contact_us">Contact Us</string>
+    <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
+    <string name="mobile_number">Our Mobile Number : (Click To Call) \n +919790495863</string>
+    <string name="map_label">Locate us in Google Maps : </string>
+    <string name="map_address">https://goo.gl/maps/GUB7Apd1hYL2</string>
     <string name="packages">Packages</string>
+
+    <string name="static_mobile_number">+919790495863</string>
+    <string name="static_email_id">+919790495863</string>
 
 
     <string-array name="city_array">
@@ -81,10 +88,20 @@
     
     <string-array name="function_array">
         <item>Please Select The Required Function *</item>
-        <item>Bethrothal</item>
         <item>Wedding</item>
+        <item>Pre Wedding Shoot</item>
+        <item>Engagement</item>
+        <item>Birthday</item>
+        <item>Others</item>
     </string-array>
 
+    <string-array name="budget_array">
+        <item>Less Than Rs. 30,000</item>
+        <item>Rs. 30,000 - Rs. 50,000</item>
+        <item>Rs. 50,000 - Rs. 75,000</item>
+        <item>Rs. 75,000 - Rs. 1 lakh</item>
+        <item>Above Rs. 1 Lakh</item>
+    </string-array>
 
     <string-array name="mode_of_delivery_array">
         <item>Please Select the Mode Of Delivery *</item>

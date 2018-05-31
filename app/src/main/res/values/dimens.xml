@@ -5,7 +5,7 @@
     <dimen name="cardviewProperty">10dp</dimen>
     <dimen name="parent_layout_common_margin">0dp</dimen>
     <dimen name="activity_margin">4dp</dimen>
-    <dimen name="alert_margin">20dp</dimen>
+    <dimen name="alert_margin">40dp</dimen>
     <dimen name="alert_title_font_size">22sp</dimen>
     <dimen name="alert_primary_text_font_size">15sp</dimen>
 </resources>

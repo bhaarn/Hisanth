@@ -1,11 +1,84 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:background="@color/colorContactUsFragment"
     android:scrollbars="vertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/contact_us"/>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
+        app:cardElevation="@dimen/cardviewProperty"
+        app:cardCornerRadius="@dimen/cardviewProperty"
+        android:layout_margin="@dimen/activity_margin">
+
+    <TextView
+        android:id="@+id/mobile_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:text="@string/mobile_number" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
+        app:cardElevation="@dimen/cardviewProperty"
+        app:cardCornerRadius="@dimen/cardviewProperty"
+        android:layout_margin="@dimen/activity_margin"
+        android:layout_below="@+id/card1">
+
+    <TextView
+        android:id="@+id/email_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:text="@string/mail_id" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
+        app:cardElevation="@dimen/cardviewProperty"
+        app:cardCornerRadius="@dimen/cardviewProperty"
+        android:layout_margin="@dimen/activity_margin"
+        android:layout_below="@+id/card2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:gravity="center_horizontal"
+            android:layout_gravity="top"
+            android:layout_marginBottom="@dimen/alert_margin"
+            android:text="@string/map_label" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom"
+        android:text="@string/map_address" />
+
+    </android.support.v7.widget.CardView>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:layout_below="@+id/card3"/>
+
 </RelativeLayout>

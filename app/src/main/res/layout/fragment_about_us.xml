@@ -9,6 +9,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
         android:layout_margin="@dimen/activity_margin"
         app:cardCornerRadius="@dimen/cardviewProperty"
         app:cardElevation="@dimen/cardviewProperty">
@@ -17,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorTabIndicatorColor"
             android:text="@string/about_us1" />
 
     </android.support.v7.widget.CardView>
@@ -25,6 +25,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
         android:layout_margin="@dimen/activity_margin"
         app:cardCornerRadius="@dimen/cardviewProperty"
         app:cardElevation="@dimen/cardviewProperty">
@@ -33,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorTabIndicatorColor"
             android:text="@string/about_us2" />
 
     </android.support.v7.widget.CardView>
@@ -41,6 +41,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorCardViewText"
         android:layout_margin="@dimen/activity_margin"
         app:cardCornerRadius="@dimen/cardviewProperty"
         app:cardElevation="@dimen/cardviewProperty">
@@ -49,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorTabIndicatorColor"
             android:text="@string/about_us3" />
 
     </android.support.v7.widget.CardView>
