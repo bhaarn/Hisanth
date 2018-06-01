@@ -8,12 +8,75 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ToolBarWithNavigationBack">
-        <item name="navigationIcon">@drawable/abc_ic_ab_back_material</item>
-    </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CardViewStyle" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/activity_margin</item>
+        <item name="cardBackgroundColor">@color/colorCardViewText</item>
+        <item name="cardCornerRadius">@dimen/cardviewProperty</item>
+        <item name="cardElevation">@dimen/cardviewProperty</item>
+    </style>
+
+    <style name="CommonTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/activity_margin</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="RegistrationTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/activity_margin</item>
+        <item name="android:textSize">@dimen/TextFontSize</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LinearLayoutStyleHorizontal" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorCardViewText</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="LinearLayoutStyleVertical" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorAboutUsFragment</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/TextFontSize</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/TextFontSize</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorCardViewText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/TextFontSize</item>
+    </style>
 
 </resources>

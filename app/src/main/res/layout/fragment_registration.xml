@@ -2,106 +2,216 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorRegistrationFragment">
+    <LinearLayout style="@style/LinearLayoutStyleVertical">
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:inputType="textCapWords" />
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText1"
-            android:hint="@string/address"
-            android:inputType="textMultiLine" />
+            <TextView
+                style="@style/RegistrationTextViewStyle"
+                android:text="@string/mandatory_fields" />
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText2"
-            android:hint="@string/locality"
-            android:inputType="textCapWords" />
+        </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText3"
-            android:entries="@array/city_array"
-            android:prompt="@string/city" />
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
 
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner1"
-            android:hint="@string/pincode"
-            android:inputType="number" />
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText4"
-            android:hint="@string/mobile"
-            android:inputType="number" />
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/name" />
 
-        <EditText
-            android:id="@+id/editText6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText5"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+                <EditText
+                    android:id="@+id/editText1"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/name_hint"
+                    android:inputType="textCapWords" />
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText6"
-            android:entries="@array/service_array"
-            android:prompt="@string/services" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/editText7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner2"
-            android:clickable="true"
-            android:focusable="false"
-            android:hint="@string/date"
-            android:inputType="date" />
+        </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText7"
-            android:entries="@array/mode_of_delivery_array"
-            android:prompt="@string/delivery_mode" />
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinner3"
-            android:text="@string/submit" />
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/button1"
-            android:text="@string/reset" />
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/address" />
 
-    </RelativeLayout>
+                <EditText
+                    android:id="@+id/editText2"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/address_hint"
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/locality" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/locality_hint"
+                    android:inputType="textCapWords" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/city" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner1"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/city_array"
+                    android:prompt="@string/city_hint" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/pincode" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/pincode_hint"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/mobile" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/mobile_hint"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/email" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/email_hint"
+                    android:inputType="textEmailAddress" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/services" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner2"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/service_array"
+                    android:prompt="@string/services_hint" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/date" />
+
+                <EditText
+                    android:id="@+id/editText7"
+                    style="@style/EditTextStyle"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="@string/date_hint"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/delivery_mode" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner3"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/mode_of_delivery_array"
+                    android:prompt="@string/delivery_mode_hint" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/ButtonStyle"
+                android:text="@string/submit" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/ButtonStyle"
+                android:text="@string/reset" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

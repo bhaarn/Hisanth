@@ -1,16 +1,26 @@
 <resources>
     <string name="app_name">Hishanth Photography</string>
     <string name="ad_id">ca-app-pub-2373003321681741~7281773351</string>
-    <string name="name">Please Enter Your Name *</string>
-    <string name="address">Please Enter Your Address *</string>
-    <string name="locality">Please Enter Your Locality *</string>
-    <string name="city">Please Select Your City *</string>
-    <string name="pincode">Please Enter Your PinCode *</string>
-    <string name="mobile">Please Enter Your Mobile Number *</string>
-    <string name="email">Please Enter Your Email ID *</string>
-    <string name="services">Please Select The Required Service *</string>
-    <string name="date">Please Select the Date Of Function *</string>
-    <string name="delivery_mode">Please Select the Mode Of Delivery *</string>
+    <string name="name">Name *</string>
+    <string name="address">Address *</string>
+    <string name="locality">Locality *</string>
+    <string name="city">City *</string>
+    <string name="pincode">PinCode *</string>
+    <string name="mobile">Mobile Number *</string>
+    <string name="email">Email ID *</string>
+    <string name="services">Required Service *</string>
+    <string name="date">Date Of Function *</string>
+    <string name="delivery_mode">Mode Of Delivery *</string>
+    <string name="name_hint">Please Enter Your Name</string>
+    <string name="address_hint">Please Enter Your Address</string>
+    <string name="locality_hint">Please Enter Your Locality</string>
+    <string name="city_hint">Please Select Your City</string>
+    <string name="pincode_hint">Please Enter Your PinCode</string>
+    <string name="mobile_hint">Please Enter Your Mobile Number</string>
+    <string name="email_hint">Please Enter Your Email ID</string>
+    <string name="services_hint">Please Select The Required Service</string>
+    <string name="date_hint">Please Select the Date Of Function</string>
+    <string name="delivery_mode_hint">Please Select the Mode Of Delivery</string>
     <string name="submit">Submit</string>
     <string name="reset">Reset Values</string>
     <string name="name_error">You did not enter the Name</string>
@@ -36,11 +46,12 @@
     <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
     <string name="mobile_number">Our Mobile Number : (Click To Call) \n +919790495863</string>
     <string name="map_label">Locate us in Google Maps : </string>
-    <string name="map_address">https://goo.gl/maps/GUB7Apd1hYL2</string>
+    <string name="map_address">Locate us in Google Maps : (Click To Locate) \n https://goo.gl/maps/GUB7Apd1hYL2</string>
     <string name="packages">Packages</string>
 
     <string name="static_mobile_number">+919790495863</string>
     <string name="static_email_id">+919790495863</string>
+    <string name="mandatory_fields">The Fields which are marked with * are Mandatory Fields</string>
 
 
     <string-array name="city_array">
