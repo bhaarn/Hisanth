@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Hishanth Photography</string>
     <string name="ad_id">ca-app-pub-2373003321681741~7281773351</string>
+    <string name="google_maps_key">AIzaSyAO-yZ3wHsZjTCyX9f-WXxYQzdftUGD95s</string>
     <string name="name">Name *</string>
+    <string name="gpsAddress">Auto Address Capture</string>
     <string name="address">Address *</string>
     <string name="locality">Locality *</string>
     <string name="city">City *</string>

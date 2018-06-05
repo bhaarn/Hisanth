@@ -30,7 +30,29 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+        <android.support.v7.widget.CardView
+            android:id="@+id/gpsAddressCardView"
+            style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/gpsAddress" />
+
+                <EditText
+                    android:id="@+id/gpsAddress"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/address_hint"
+                    android:inputType="none" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/addressCardView"
+            style="@style/CardViewStyle">
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
@@ -48,7 +70,9 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+        <android.support.v7.widget.CardView
+            android:id="@+id/localityCardView"
+            style="@style/CardViewStyle">
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
@@ -66,7 +90,9 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+        <android.support.v7.widget.CardView
+            android:id="@+id/cityCardView"
+            style="@style/CardViewStyle">
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
@@ -84,7 +110,9 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+        <android.support.v7.widget.CardView
+            android:id="@+id/pincodeCardView"
+            style="@style/CardViewStyle">
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
