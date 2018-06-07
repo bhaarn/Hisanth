@@ -33,7 +33,7 @@ public class ContactUsFragment extends Fragment {
                     utils.callNumber();
                     break;
                 case R.id.email_id:
-                    utils.sendEmail();
+                    utils.sendEmail("");
                     break;
                 default:
                     break;

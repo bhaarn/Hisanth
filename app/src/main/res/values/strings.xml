@@ -55,6 +55,22 @@
     <string name="static_email_id">+919790495863</string>
     <string name="mandatory_fields">The Fields which are marked with * are Mandatory Fields</string>
 
+    <string name="alert_location_title">Enable Location</string>
+    <string name="alert_location_message">Your Locations Settings is set to \'Off\'. \n Please Enable Location to use this app</string>
+    <string name="alert_location_positive_button">Location Settings</string>
+    <string name="alert_location_module_name">location</string>
+
+    <string name="alert_generic_positive_button">Location Settings</string>
+
+    <string name="alert_permission_message">1. To send SMS to the Owner after you successfully submit your request, SMS Permission is required. \n2. To Call the Owner as soon as you click the mobile number, Call permission is required. \n3. To Automatically Capture your address instead of you typing, Location permission is required.</string>
+    <string name="go_to_settings">Go to settings and enable permissions</string>
+    <string name="static_tel">tel:</string>
+    <string name="static_mail_subject">Hisanth Photography Contact Us Query</string>
+    <string name="static_mail_select_title">Send email using...</string>
+    <string name="static_mail_error">No email clients installed.</string>
+    <string name="static_sms">sms:</string>
+    <string name="simple_date_format">dd/MM/yyyy</string>
+
 
     <string-array name="city_array">
         <item>Please Select Your City *</item>

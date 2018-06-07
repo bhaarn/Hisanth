@@ -5,25 +5,20 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,47 +34,20 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.materialup_tabs);
         ViewPager viewPager = findViewById(R.id.viewPager);
         tabLayout.setupWithViewPager(viewPager);
-        FragmentPagerAdapter fragmentPagerAdapter = new pagerAdapter(getSupportFragmentManager());
+        FragmentPagerAdapter fragmentPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);
         initializeAds(this);
         utils = new Utils(this);
-        if (checkAndRequestPermissions()) {
+        if (utils.checkAndRequestPermissions()) {
             all_permission = true;
         }
     }
 
-    private boolean checkAndRequestPermissions() {
-        int permissionSendMessage = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
-        int permissionCallPhone = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
-        int permissionGetCoarseLocation = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        int permissionGetFineLocation = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-
-        List<String> listPermissionsNeeded = new ArrayList<>();
-        if (permissionCallPhone != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.CALL_PHONE);
-        }
-        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
-        }
-        if (permissionGetCoarseLocation != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-        }
-        if (permissionGetFineLocation != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        }
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_ID_MULTIPLE_PERMISSIONS);
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_ID_MULTIPLE_PERMISSIONS: {
-
                 Map<String, Integer> perms = new HashMap<>();
                 perms.put(Manifest.permission.SEND_SMS, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.CALL_PHONE, PackageManager.PERMISSION_GRANTED);
@@ -98,14 +66,13 @@ public class MainActivity extends AppCompatActivity {
                                 ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE) ||
                                 ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION) ||
                                 ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                            utils.showDialogOK("To send to the Owner after you successfully submit your request, SMS Permission is required \n To Call the Owner as soon as you " +
-                                            "click the mobile number, Call permission is required. \n To Automatically Capture your address instead of you typing, Location permission is required",
+                            utils.showDialogOK(getResources().getString(R.string.alert_permission_message),
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             switch (which) {
                                                 case DialogInterface.BUTTON_POSITIVE:
-                                                    checkAndRequestPermissions();
+                                                    utils.checkAndRequestPermissions();
                                                     break;
                                                 case DialogInterface.BUTTON_NEGATIVE:
                                                     break;
@@ -113,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     });
                         } else {
-                            Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG)
+                            Toast.makeText(this, getResources().getString(R.string.go_to_settings), Toast.LENGTH_LONG)
                                     .show();
                             finish();
                         }
@@ -121,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
     }
 
     void initializeAds(Activity activity) {
@@ -132,60 +98,5 @@ public class MainActivity extends AppCompatActivity {
                 .addTestDevice("D61A47C78CD8E1F5ECD16B2D1BD211C6")
                 .build();
         mAdView.loadAd(adRequest);
-        Boolean b = adRequest.isTestDevice(this);
-        Log.d("Bharani", b.toString());
-    }
-
-    public static class pagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 6;
-
-        pagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_ITEMS;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return AboutFragment.newInstance();
-                case 1:
-                    return RegistrationFragment.newInstance();
-                case 2:
-                    return PersonalPackagesFragment.newInstance();
-                case 3:
-                    return CorporatePackagesFragment.newInstance();
-                case 4:
-                    return HelpFragment.newInstance();
-                case 5:
-                    return ContactUsFragment.newInstance();
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "About Us";
-                case 1:
-                    return "Registration";
-                case 2:
-                    return "Personal Packages";
-                case 3:
-                    return "Corporate Packages";
-                case 4:
-                    return "Help";
-                case 5:
-                    return "Contact Us";
-                default:
-                    return "Page " + position;
-            }
-        }
     }
 }
