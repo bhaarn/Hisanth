@@ -48,7 +48,7 @@
     <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
     <string name="mobile_number">Our Mobile Number : (Click To Call) \n +919790495863</string>
     <string name="map_label">Locate us in Google Maps : </string>
-    <string name="map_address">Locate us in Google Maps : (Click To Locate) \n https://goo.gl/maps/GUB7Apd1hYL2</string>
+    <string name="map_address">Locate us in Google Maps : (Loaded Below)</string>
     <string name="packages">Packages</string>
 
     <string name="static_mobile_number">+919790495863</string>
