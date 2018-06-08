@@ -9,6 +9,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -30,6 +31,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener, GoogleApiClient.ConnectionCallbacks,
          com.google.android.gms.location.LocationListener {
@@ -70,34 +72,23 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     Double longitude;
 
     private GoogleApiClient mGoogleApiClient;
-    private Location mLocation;
-    private LocationManager mLocationManager;
-
-    private LocationRequest mLocationRequest;
-    private com.google.android.gms.location.LocationListener listener;
-    private long UPDATE_INTERVAL = 2 * 1000;  /* 10 secs */
-    private long FASTEST_INTERVAL = 2000; /* 2 sec */
-
-    private LocationManager locationManager;
 
     public static RegistrationFragment newInstance() {
         return new RegistrationFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_registration, container, false);
 
         myCalendar = Calendar.getInstance();
         utils = new Utils(getActivity());
 
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+        mGoogleApiClient = new GoogleApiClient.Builder(Objects.requireNonNull(getActivity()))
                 .addConnectionCallbacks(this)
                 .addApi(LocationServices.API)
                 .build();
-
-        mLocationManager = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         checkLocation();
 
@@ -186,7 +177,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         Geocoder geocoder;
         List<Address> addresses;
         geocoder = new Geocoder(getActivity(), Locale.getDefault());
-        StringBuilder address = null;
+        StringBuilder address;
         String finalAddress;
         try {
             addresses = geocoder.getFromLocation(latitude, longitude, 1);
@@ -224,7 +215,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     }
 
     private void dateSetter() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), date, myCalendar
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getActivity()), date, myCalendar
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
@@ -234,25 +225,18 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     private void validationCheck() {
         if (editText1.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.name_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText2.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.address_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText3.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.locality_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText4.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.pincode_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText5.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.mobile_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText6.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.email_error, Toast.LENGTH_SHORT).show();
-            return;
         } else if (editText7.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.date_error, Toast.LENGTH_SHORT).show();
-            return;
         } else {
             details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + editText2.getText().toString() + "\n" + "Locality : " + editText3.getText().toString() +
                     "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
@@ -277,12 +261,12 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onConnected(Bundle bundle) {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
             return;
         }
         startLocationUpdates();
-        mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        Location mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLocation == null) {
             startLocationUpdates();
         }
@@ -314,11 +298,13 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     }
 
     protected void startLocationUpdates() {
-        mLocationRequest = LocationRequest.create()
+        long UPDATE_INTERVAL = 2 * 1000;
+        long FASTEST_INTERVAL = 2000;
+        LocationRequest mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(UPDATE_INTERVAL)
                 .setFastestInterval(FASTEST_INTERVAL);
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
             return;
         }
@@ -338,15 +324,16 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         }
     }
 
-    private boolean checkLocation() {
+    private void checkLocation() {
         if (!isLocationEnabled())
-            utils.showAlert(getActivity().getResources().getString(R.string.alert_location_title), getActivity().getResources().getString(R.string.alert_location_message),
+            utils.showAlert(Objects.requireNonNull(getActivity()).getResources().getString(R.string.alert_location_title), getActivity().getResources().getString(R.string.alert_location_message),
                     getActivity().getResources().getString(R.string.alert_location_positive_button), getActivity().getResources().getString(android.R.string.cancel));
-        return isLocationEnabled();
+        isLocationEnabled();
     }
 
     private boolean isLocationEnabled() {
-        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) Objects.requireNonNull(getActivity()).getSystemService(Context.LOCATION_SERVICE);
+        assert locationManager != null;
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
