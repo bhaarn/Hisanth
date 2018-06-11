@@ -1,4 +1,4 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,6 +14,9 @@ import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.padhuga.hishanth.R;
+import com.padhuga.hishanth.activities.MainActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,11 +28,11 @@ public class Utils {
     private static final int REQUEST_READ_PHONE_STATE = 0;
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
-    Utils(Context context){
+    public Utils(Context context){
         activity = (Activity) context;
     }
 
-    protected boolean checkAndRequestPermissions() {
+    public boolean checkAndRequestPermissions() {
         int permissionSendMessage = ContextCompat.checkSelfPermission(activity, Manifest.permission.SEND_SMS);
         int permissionCallPhone = ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE);
         int permissionGetCoarseLocation = ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION);
@@ -55,15 +58,15 @@ public class Utils {
         return true;
     }
 
-    protected void callNumber() {
+    public void callNumber(String mobileNumber) {
         if (MainActivity.all_permission) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse(activity.getResources().getString(R.string.static_tel) + activity.getResources().getString(R.string.static_mobile_number)));
+            callIntent.setData(Uri.parse(activity.getResources().getString(R.string.static_tel) + mobileNumber));
             activity.startActivity(callIntent);
         }
     }
 
-    protected void sendEmail(String details) {
+    public void sendEmail(String details) {
         final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
         emailIntent.setType("message/rfc822");
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{activity.getResources().getString(R.string.static_email_id)});
@@ -85,13 +88,13 @@ public class Utils {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
         }
         if(MainActivity.all_permission) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(activity.getResources().getString(R.string.static_sms) + activity.getResources().getString(R.string.static_mobile_number)));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(activity.getResources().getString(R.string.static_sms) + activity.getResources().getString(R.string.static_mobile_number1)));
             intent.putExtra(Constants.ARG_SMS_BODY, details);
             activity.startActivity(intent);
         }
     }
 
-    protected void showDialogOK(String message, DialogInterface.OnClickListener okListener) {
+    public void showDialogOK(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(activity)
                 .setMessage(message)
                 .setPositiveButton(activity.getResources().getString(android.R.string.ok), okListener)
@@ -100,12 +103,12 @@ public class Utils {
                 .show();
     }
 
-    protected void updateLabel(Calendar myCalendar, EditText editText) {
+    public void updateLabel(Calendar myCalendar, EditText editText) {
         SimpleDateFormat sdf = new SimpleDateFormat(activity.getResources().getString(R.string.simple_date_format), Locale.US);
         editText.setText(sdf.format(myCalendar.getTime()));
     }
 
-    protected void showAlert(String title, String message, String positiveButton, String negetiveButton) {
+    public void showAlert(String title, String message, String positiveButton, String negetiveButton) {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
         dialog.setTitle(title)
                 .setMessage(message)

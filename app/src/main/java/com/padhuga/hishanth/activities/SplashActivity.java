@@ -1,4 +1,4 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.WindowManager;
 import android.widget.VideoView;
+
+import com.padhuga.hishanth.R;
 
 import java.util.Random;
 

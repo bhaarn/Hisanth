@@ -1,4 +1,4 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +17,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.padhuga.hishanth.R;
+import com.padhuga.hishanth.utils.Constants;
+import com.padhuga.hishanth.utils.Utils;
 
 public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
 
@@ -33,8 +36,10 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_contact_us, container, false);
-        TextView mobileNumber = rootView.findViewById(R.id.mobile_number);
-        mobileNumber.setOnClickListener(viewClickListener);
+        TextView mobileNumber1 = rootView.findViewById(R.id.mobile_number1);
+        mobileNumber1.setOnClickListener(viewClickListener);
+        TextView mobileNumber2 = rootView.findViewById(R.id.mobile_number2);
+        mobileNumber2.setOnClickListener(viewClickListener);
         TextView emailId = rootView.findViewById(R.id.email_id);
         emailId.setOnClickListener(viewClickListener);
         return rootView;
@@ -44,8 +49,11 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
         public void onClick(View v) {
             Utils utils = new Utils(getActivity());
             switch (v.getId()) {
-                case R.id.mobile_number:
-                    utils.callNumber();
+                case R.id.mobile_number1:
+                    utils.callNumber(getActivity().getResources().getString(R.string.static_mobile_number1));
+                    break;
+                case R.id.mobile_number2:
+                    utils.callNumber(getActivity().getResources().getString(R.string.static_mobile_number2));
                     break;
                 case R.id.email_id:
                     utils.sendEmail("");
@@ -72,8 +80,9 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
         MapsInitializer.initialize(getContext());
         this.googleMap = googleMap;
         this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(9.962876,78.131009)).title("Hisanth Photography Office").snippet("You can see us there"));
-        CameraPosition cameraPosition = CameraPosition.builder().target(new LatLng(9.962876,78.131009)).zoom(16).bearing(0).tilt(45).build();
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(Constants.LATITUDE,Constants.LONGITUDE)).title(getString(R.string.map_title)).snippet(getString(R.string.map_snippet)));
+        CameraPosition cameraPosition = CameraPosition.builder().target(new LatLng(Constants.LATITUDE,Constants.LONGITUDE))
+                .zoom(Constants.ZOOM_VALUE).bearing(Constants.BEARING).tilt(Constants.TILT).build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 }

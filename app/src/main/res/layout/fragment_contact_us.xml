@@ -4,9 +4,18 @@
     <android.support.v7.widget.CardView style="@style/CardViewStyle">
 
         <TextView
-            android:id="@+id/mobile_number"
+            android:id="@+id/mobile_number1"
             style="@style/CommonTextViewStyle"
-            android:text="@string/mobile_number" />
+            android:text="@string/mobile_number1" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+        <TextView
+            android:id="@+id/mobile_number2"
+            style="@style/CommonTextViewStyle"
+            android:text="@string/mobile_number2" />
 
     </android.support.v7.widget.CardView>
 

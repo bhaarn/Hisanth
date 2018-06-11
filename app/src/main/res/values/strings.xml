@@ -2,6 +2,7 @@
     <string name="app_name">Hishanth Photography</string>
     <string name="ad_id">ca-app-pub-2373003321681741~7281773351</string>
     <string name="google_maps_key">AIzaSyAO-yZ3wHsZjTCyX9f-WXxYQzdftUGD95s</string>
+
     <string name="name">Name *</string>
     <string name="gpsAddress">Auto Address Capture</string>
     <string name="address">Address *</string>
@@ -38,39 +39,43 @@
     <string name="tax">Overall Tax would be : </string>
     <string name="discount">Overall Discount would be : </string>
     <string name="final_price">Overall Final Price would be : </string>
+    <string name="mandatory_fields">The Fields which are marked with * are Mandatory Fields</string>
+
     <string name="about_us1">Your Event will be Covered by a dedicated Photography and Videography team that understands the importance of a Wedding.</string>
     <string name="about_us2">Every event is treated as our own event and hence atmost care is given to every aspect of the event to make it very special and unique.</string>
     <string name="about_us3">We believe in referral clients and work to the utmost satisfaction of our client and their near and dear.</string>
+
     <string name="help">Help</string>
-    <string name="main_text">Expertise in Digital Media</string>
-    <string name="sub_text">Feel free to ask Customized package which match your budget. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
-    <string name="contact_us">Contact Us</string>
-    <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
-    <string name="mobile_number">Our Mobile Number : (Click To Call) \n +919790495863</string>
-    <string name="map_label">Locate us in Google Maps : </string>
-    <string name="map_address">Locate us in Google Maps : (Loaded Below)</string>
     <string name="packages">Packages</string>
 
-    <string name="static_mobile_number">+919790495863</string>
-    <string name="static_email_id">+919790495863</string>
-    <string name="mandatory_fields">The Fields which are marked with * are Mandatory Fields</string>
+    <string name="disclaimer1">Feel free to ask Customized package which match your budget. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
+    <string name="disclaimer2">If you want demo videos, feel free to ask us and we will show you in our office. \n No Demo videos will be posted Online or in Application. \n We believe that customer privacy is very important</string>
 
-    <string name="alert_location_title">Enable Location</string>
-    <string name="alert_location_message">Your Locations Settings is set to \'Off\'. \n Please Enable Location to use this app</string>
-    <string name="alert_location_positive_button">Location Settings</string>
-    <string name="alert_location_module_name">location</string>
-
-    <string name="alert_generic_positive_button">Location Settings</string>
-
-    <string name="alert_permission_message">1. To send SMS to the Owner after you successfully submit your request, SMS Permission is required. \n2. To Call the Owner as soon as you click the mobile number, Call permission is required. \n3. To Automatically Capture your address instead of you typing, Location permission is required.</string>
-    <string name="go_to_settings">Go to settings and enable permissions</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
+    <string name="mobile_number1">Our Mobile Number 1 : (Click To Call) \n +919790495863</string>
+    <string name="mobile_number2">Our Mobile Number 2 : (Click To Call) \n +918148148281</string>
+    <string name="map_label">Locate us in Google Maps : </string>
+    <string name="map_address">Locate us in Google Maps : (Loaded Below)</string>
+    <string name="static_mobile_number1">+919790495863</string>
+    <string name="static_mobile_number2">+918148148281</string>
+    <string name="static_email_id">hisanthphotography@gmail.com</string>
     <string name="static_tel">tel:</string>
     <string name="static_mail_subject">Hisanth Photography Contact Us Query</string>
     <string name="static_mail_select_title">Send email using...</string>
     <string name="static_mail_error">No email clients installed.</string>
     <string name="static_sms">sms:</string>
     <string name="simple_date_format">dd/MM/yyyy</string>
+    <string name="map_title">Hisanth Photography Office</string>
+    <string name="map_snippet">You can see us there</string>
 
+    <string name="alert_location_title">Enable Location</string>
+    <string name="alert_location_message">Your Locations Settings is set to \'Off\'. \n Please Enable Location to use this app</string>
+    <string name="alert_location_positive_button">Location Settings</string>
+    <string name="alert_location_module_name">location</string>
+    <string name="alert_generic_positive_button">Location Settings</string>
+    <string name="alert_permission_message">1. To send SMS to the Owner after you successfully submit your request, SMS Permission is required. \n2. To Call the Owner as soon as you click the mobile number, Call permission is required. \n3. To Automatically Capture your address instead of you typing, Location permission is required.</string>
+    <string name="go_to_settings">Go to settings and enable permissions</string>
 
     <string-array name="city_array">
         <item>Please Select Your City *</item>

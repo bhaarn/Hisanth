@@ -1,4 +1,4 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.activities;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -26,6 +26,8 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.padhuga.hishanth.R;
+import com.padhuga.hishanth.utils.Utils;
 
 import java.io.IOException;
 import java.util.Calendar;

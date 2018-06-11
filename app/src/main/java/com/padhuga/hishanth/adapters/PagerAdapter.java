@@ -1,13 +1,20 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.padhuga.hishanth.activities.AboutFragment;
+import com.padhuga.hishanth.activities.ContactUsFragment;
+import com.padhuga.hishanth.activities.CorporatePackagesFragment;
+import com.padhuga.hishanth.activities.HelpFragment;
+import com.padhuga.hishanth.activities.PersonalPackagesFragment;
+import com.padhuga.hishanth.activities.RegistrationFragment;
+
 public class PagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 6;
 
-    PagerAdapter(FragmentManager fragmentManager) {
+    public PagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

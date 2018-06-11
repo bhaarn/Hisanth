@@ -1,4 +1,4 @@
-package com.padhuga.hishanth;
+package com.padhuga.hishanth.activities;
 
 import android.Manifest;
 import android.app.Activity;
@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.padhuga.hishanth.adapters.PagerAdapter;
+import com.padhuga.hishanth.R;
+import com.padhuga.hishanth.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
