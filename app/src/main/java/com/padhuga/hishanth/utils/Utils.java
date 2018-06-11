@@ -79,7 +79,9 @@ public class Utils {
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(activity, activity.getString(R.string.static_mail_error), Toast.LENGTH_SHORT).show();
         }
-        sendSMSMessage(details);
+        if(!details.equals("")) {
+            sendSMSMessage(details);
+        }
     }
 
     private void sendSMSMessage(String details) {
@@ -143,5 +145,32 @@ public class Utils {
                 activity.startActivity(myIntent);
                 break;
         }
+    }
+
+    public void openFacebook(String pageName) {
+       // String YourPageURL = "https://www.facebook.com/n/?"+pageName;
+        String YourPageURL = "https://www.facebook.com/"+"scrimmagesuren";
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(YourPageURL));
+        activity.startActivity(browserIntent);
+    }
+
+    public void openWhatsapp(String whatsappContact) {
+        try {
+            Intent sendIntent = new Intent("android.intent.action.MAIN");
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setType("text/plain");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Enquiry");
+            sendIntent.putExtra("jid", whatsappContact + "@s.whatsapp.net");
+            sendIntent.setPackage("com.whatsapp");
+            activity.startActivity(sendIntent);
+        } catch(Exception e) {
+            Toast.makeText(activity, "Error\n" + e.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void openYoutube(String youtubeChannel) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://www.youtube.com/channel/"+youtubeChannel));
+        activity.startActivity(intent);
     }
 }

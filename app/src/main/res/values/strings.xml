@@ -53,6 +53,9 @@
 
     <string name="contact_us">Contact Us</string>
     <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
+    <string name="facebook">Contact Us in Facebook (Click to Open our Facebook Page) \n hisanthphotography@gmail.com</string>
+    <string name="whatsapp">Whatsapp Us in : (Click to Whatsapp Us) \n +919790495863</string>
+    <string name="youtube">Check Our Youtube Channel (Click to Open) \n hisanthphotography@gmail.com</string>
     <string name="mobile_number1">Our Mobile Number 1 : (Click To Call) \n +919790495863</string>
     <string name="mobile_number2">Our Mobile Number 2 : (Click To Call) \n +918148148281</string>
     <string name="map_label">Locate us in Google Maps : </string>
@@ -60,6 +63,9 @@
     <string name="static_mobile_number1">+919790495863</string>
     <string name="static_mobile_number2">+918148148281</string>
     <string name="static_email_id">hisanthphotography@gmail.com</string>
+    <string name="static_facebook">+919790495863</string>
+    <string name="static_whatsapp">919790495863</string>
+    <string name="static_youtube">UC_5R469ekdDvHUpiRsc_tEw</string>
     <string name="static_tel">tel:</string>
     <string name="static_mail_subject">Hisanth Photography Contact Us Query</string>
     <string name="static_mail_select_title">Send email using...</string>

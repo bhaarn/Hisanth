@@ -42,6 +42,12 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
         mobileNumber2.setOnClickListener(viewClickListener);
         TextView emailId = rootView.findViewById(R.id.email_id);
         emailId.setOnClickListener(viewClickListener);
+        TextView facebook = rootView.findViewById(R.id.facebook);
+        facebook.setOnClickListener(viewClickListener);
+        TextView whatsapp = rootView.findViewById(R.id.whatsapp);
+        whatsapp.setOnClickListener(viewClickListener);
+        TextView youtube = rootView.findViewById(R.id.youtube);
+        youtube.setOnClickListener(viewClickListener);
         return rootView;
     }
 
@@ -57,6 +63,15 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback {
                     break;
                 case R.id.email_id:
                     utils.sendEmail("");
+                    break;
+                case R.id.facebook:
+                    utils.openFacebook(getActivity().getResources().getString(R.string.static_facebook));
+                    break;
+                case R.id.whatsapp:
+                    utils.openWhatsapp(getActivity().getResources().getString(R.string.static_whatsapp));
+                    break;
+                case R.id.youtube:
+                    utils.openYoutube(getActivity().getResources().getString(R.string.static_youtube));
                     break;
                 default:
                     break;
