@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -36,7 +37,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener, GoogleApiClient.ConnectionCallbacks,
-         com.google.android.gms.location.LocationListener {
+        com.google.android.gms.location.LocationListener {
 
     CardView gpsAddressCardView;
     CardView addressCardView;
@@ -111,10 +112,22 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         gpsAddress = rootView.findViewById(R.id.gpsAddress);
 
         spinner1 = rootView.findViewById(R.id.spinner1);
+        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.city_array));
+        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item);
+        spinner1.setBackgroundResource(R.drawable.spinner_text_selection_style);
+        spinner1.setAdapter(spinnerArrayAdapter1);
         spinner1.setOnItemSelectedListener(this);
         spinner2 = rootView.findViewById(R.id.spinner2);
+        ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.service_array));
+        spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinner_item);
+        spinner2.setBackgroundResource(R.drawable.spinner_text_selection_style);
+        spinner2.setAdapter(spinnerArrayAdapter2);
         spinner2.setOnItemSelectedListener(this);
         spinner3 = rootView.findViewById(R.id.spinner3);
+        ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.mode_of_delivery_array));
+        spinnerArrayAdapter3.setDropDownViewResource(R.layout.spinner_item);
+        spinner3.setBackgroundResource(R.drawable.spinner_text_selection_style);
+        spinner3.setAdapter(spinnerArrayAdapter3);
         spinner3.setOnItemSelectedListener(this);
 
         button1 = rootView.findViewById(R.id.button1);
@@ -227,11 +240,11 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     private void validationCheck() {
         if (editText1.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.name_error, Toast.LENGTH_SHORT).show();
-        } else if (editText2.getText().toString().matches("")) {
+        } else if (editText2.getText().toString().matches("") && editText2.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.address_error, Toast.LENGTH_SHORT).show();
-        } else if (editText3.getText().toString().matches("")) {
+        } else if (editText3.getText().toString().matches("") && editText3.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.locality_error, Toast.LENGTH_SHORT).show();
-        } else if (editText4.getText().toString().matches("")) {
+        } else if (editText4.getText().toString().matches("") && editText4.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.pincode_error, Toast.LENGTH_SHORT).show();
         } else if (editText5.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.mobile_error, Toast.LENGTH_SHORT).show();
@@ -244,7 +257,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
                     + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
                     + "Mode of Delivery : " + selectedDeliveryMode + "\n";
-            utils.sendEmail(details);
+            utils.showPrice(details);
         }
     }
 
@@ -329,7 +342,8 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     private void checkLocation() {
         if (!isLocationEnabled())
             utils.showAlert(Objects.requireNonNull(getActivity()).getResources().getString(R.string.alert_location_title), getActivity().getResources().getString(R.string.alert_location_message),
-                    getActivity().getResources().getString(R.string.alert_location_positive_button), getActivity().getResources().getString(android.R.string.cancel));
+                    getActivity().getResources().getString(R.string.alert_location_positive_button), getActivity().getResources().getString(android.R.string.cancel),
+                    getActivity().getResources().getString(R.string.alert_location_module_name), "");
         isLocationEnabled();
     }
 

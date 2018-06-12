@@ -39,6 +39,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="SpinnerTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/activity_margin</item>
+        <item name="android:textSize">@dimen/TextFontSize</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorCardViewText</item>
+    </style>
+
     <style name="LinearLayoutStyleHorizontal" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -65,7 +75,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorTabLayout</item>
         <item name="android:textColorHint">@color/colorWhite</item>
         <item name="android:textSize">@dimen/TextFontSize</item>
     </style>

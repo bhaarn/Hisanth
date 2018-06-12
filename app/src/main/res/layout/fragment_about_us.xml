@@ -25,4 +25,20 @@
 
     </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+    <TextView
+        style="@style/CommonTextViewStyle"
+        android:text="@string/disclaimer1" />
+
+</android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+        <TextView
+            style="@style/CommonTextViewStyle"
+            android:text="@string/disclaimer2" />
+
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>

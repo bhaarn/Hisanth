@@ -23,6 +23,7 @@ import com.padhuga.hishanth.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         FragmentPagerAdapter fragmentPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentPagerAdapter);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.launcher);
         initializeAds(this);
         utils = new Utils(this);
         if (utils.checkAndRequestPermissions()) {

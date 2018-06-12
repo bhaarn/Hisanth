@@ -18,6 +18,6 @@ public class PersonalPackagesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_packages, container, false);
+        return inflater.inflate(R.layout.fragment_personal_packages, container, false);
     }
 }

@@ -7,12 +7,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.padhuga.hishanth.activities.AboutFragment;
 import com.padhuga.hishanth.activities.ContactUsFragment;
 import com.padhuga.hishanth.activities.CorporatePackagesFragment;
+import com.padhuga.hishanth.activities.CustomizedPackagesFragment;
 import com.padhuga.hishanth.activities.HelpFragment;
 import com.padhuga.hishanth.activities.PersonalPackagesFragment;
 import com.padhuga.hishanth.activities.RegistrationFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
-    private static int NUM_ITEMS = 6;
+    private static int NUM_ITEMS = 7;
 
     public PagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -35,8 +36,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 3:
                 return CorporatePackagesFragment.newInstance();
             case 4:
-                return HelpFragment.newInstance();
+                return CustomizedPackagesFragment.newInstance();
             case 5:
+                return HelpFragment.newInstance();
+            case 6:
                 return ContactUsFragment.newInstance();
             default:
                 return null;
@@ -55,8 +58,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 3:
                 return "Corporate Packages";
             case 4:
-                return "Help";
+                return "Customized Packages";
             case 5:
+                return "Help / FAQ";
+            case 6:
                 return "Contact Us";
             default:
                 return "Page " + position;

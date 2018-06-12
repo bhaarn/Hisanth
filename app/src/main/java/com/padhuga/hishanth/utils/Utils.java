@@ -11,7 +11,9 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.padhuga.hishanth.R;
@@ -28,7 +30,7 @@ public class Utils {
     private static final int REQUEST_READ_PHONE_STATE = 0;
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
-    public Utils(Context context){
+    public Utils(Context context) {
         activity = (Activity) context;
     }
 
@@ -71,15 +73,15 @@ public class Utils {
         emailIntent.setType("message/rfc822");
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{activity.getResources().getString(R.string.static_email_id)});
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, activity.getString(R.string.static_mail_subject));
-        if(!details.equals("")) {
+        if (!details.equals("")) {
             emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, details);
         }
         try {
-            activity.startActivity(Intent.createChooser(emailIntent,activity.getString(R.string.static_mail_select_title)));
+            activity.startActivity(Intent.createChooser(emailIntent, activity.getString(R.string.static_mail_select_title)));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(activity, activity.getString(R.string.static_mail_error), Toast.LENGTH_SHORT).show();
         }
-        if(!details.equals("")) {
+        if (!details.equals("")) {
             sendSMSMessage(details);
         }
     }
@@ -89,7 +91,7 @@ public class Utils {
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
         }
-        if(MainActivity.all_permission) {
+        if (MainActivity.all_permission) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(activity.getResources().getString(R.string.static_sms) + activity.getResources().getString(R.string.static_mobile_number1)));
             intent.putExtra(Constants.ARG_SMS_BODY, details);
             activity.startActivity(intent);
@@ -110,30 +112,38 @@ public class Utils {
         editText.setText(sdf.format(myCalendar.getTime()));
     }
 
-    public void showAlert(String title, String message, String positiveButton, String negetiveButton) {
+    public void showAlert(String title, String message, String positiveButton, String negativeButton, final String parent, final String details) {
+        final View view = activity.getLayoutInflater().inflate(R.layout.alert_registration_price_details, null);
         final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
         dialog.setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                        alertPositiveButtonOnClick(activity.getResources().getString(R.string.alert_location_module_name));
+                        alertPositiveButtonOnClick(parent, details);
                     }
                 })
-                .setNegativeButton(negetiveButton, new DialogInterface.OnClickListener() {
+                .setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                        alertNegativeButtonOnClick(activity.getResources().getString(R.string.alert_location_module_name));
+                        alertNegativeButtonOnClick(parent);
                     }
                 });
+        if (!details.equals("")) {
+            dialog.setView(view);
+            calculatePrice(view);
+        }
         dialog.show();
     }
 
-    private void alertPositiveButtonOnClick(String parent) {
+    private void alertPositiveButtonOnClick(String parent, String details) {
         switch (parent) {
             case "location":
                 Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 activity.startActivity(myIntent);
+                break;
+            case "registration":
+                sendEmail(details);
                 break;
         }
     }
@@ -144,12 +154,14 @@ public class Utils {
                 Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 activity.startActivity(myIntent);
                 break;
+            case "registration":
+                break;
         }
     }
 
     public void openFacebook(String pageName) {
-       // String YourPageURL = "https://www.facebook.com/n/?"+pageName;
-        String YourPageURL = "https://www.facebook.com/"+"scrimmagesuren";
+        // String YourPageURL = "https://www.facebook.com/n/?"+pageName;
+        String YourPageURL = "https://www.facebook.com/" + "scrimmagesuren";
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(YourPageURL));
         activity.startActivity(browserIntent);
     }
@@ -163,14 +175,31 @@ public class Utils {
             sendIntent.putExtra("jid", whatsappContact + "@s.whatsapp.net");
             sendIntent.setPackage("com.whatsapp");
             activity.startActivity(sendIntent);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Toast.makeText(activity, "Error\n" + e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void openYoutube(String youtubeChannel) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://www.youtube.com/channel/"+youtubeChannel));
+        intent.setData(Uri.parse("http://www.youtube.com/channel/" + youtubeChannel));
         activity.startActivity(intent);
+    }
+
+    public void showPrice(String details) {
+        showAlert(activity.getResources().getString(R.string.alert_registration_submit_title), activity.getResources().getString(R.string.alert_registration_submit_message),
+                activity.getResources().getString(R.string.alert_registration_submit_positive_button), activity.getResources().getString(android.R.string.cancel),
+                activity.getResources().getString(R.string.alert_registration_module_name), details);
+    }
+
+    private void calculatePrice(View view) {
+        TextView price = view.findViewById(R.id.price);
+        TextView tax = view.findViewById(R.id.tax);
+        TextView discount = view.findViewById(R.id.discount);
+        TextView final_price = view.findViewById(R.id.final_price);
+        price.setText("75000.00");
+        tax.setText("256.00");
+        discount.setText("0.00");
+        final_price.setText("75256.00");
     }
 }
