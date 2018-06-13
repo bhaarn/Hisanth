@@ -2,16 +2,20 @@ package com.padhuga.hishanth.utils;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,11 +23,13 @@ import android.widget.Toast;
 import com.padhuga.hishanth.R;
 import com.padhuga.hishanth.activities.MainActivity;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Utils {
     private Activity activity;
@@ -186,10 +192,10 @@ public class Utils {
         activity.startActivity(intent);
     }
 
-    public void showPrice(String details) {
+    public void showPrice(String details, String moduleName) {
         showAlert(activity.getResources().getString(R.string.alert_registration_submit_title), activity.getResources().getString(R.string.alert_registration_submit_message),
                 activity.getResources().getString(R.string.alert_registration_submit_positive_button), activity.getResources().getString(android.R.string.cancel),
-                activity.getResources().getString(R.string.alert_registration_module_name), details);
+                moduleName, details);
     }
 
     private void calculatePrice(View view) {
@@ -201,5 +207,51 @@ public class Utils {
         tax.setText("256.00");
         discount.setText("0.00");
         final_price.setText("75256.00");
+    }
+
+    public DatePickerDialog.OnDateSetListener setDate(DatePickerDialog.OnDateSetListener date, final Calendar myCalendar, final EditText editText7) {
+        date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel(myCalendar, editText7);
+            }
+        };
+        return date;
+    }
+
+    public void dateSetter(DatePickerDialog.OnDateSetListener date, Calendar myCalendar) {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(activity), date, myCalendar
+                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
+    }
+
+    public String getAddress(double latitude, double longitude) {
+        Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(activity, Locale.getDefault());
+        StringBuilder address;
+        String finalAddress;
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            if (addresses != null) {
+                address = new StringBuilder();
+                for (int i = 0; i <= addresses.get(0).getMaxAddressLineIndex(); i++) {
+                    address.append(addresses.get(0).getAddressLine(i)).append("\n");
+                }
+                finalAddress = address.toString();
+            } else {
+                finalAddress = "No Address Returned";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            finalAddress = "Cannot Find Address";
+        }
+        return finalAddress;
     }
 }

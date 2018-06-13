@@ -1,11 +1,78 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPackagesFragment"
-    android:scrollbars="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LinearLayoutStyleVertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/corporate_packages"/>
-</RelativeLayout>
+    <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+        <LinearLayout style="@style/LinearLayoutStyleVertical">
+
+            <TextView
+                style="@style/RegistrationTextViewStyle"
+                android:text="@string/mandatory_fields" />
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/services" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner1"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/corporate_services_array"
+                    android:prompt="@string/services_hint" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/linearLayout1"
+                style="@style/LinearLayoutStyleVertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/app_name"/>
+
+                    <EditText
+                        android:id="@+id/editText1"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/app_name"
+                        android:inputType="textCapWords" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/date" />
+
+                    <EditText
+                        android:id="@+id/editText2"
+                        style="@style/EditTextStyle"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:hint="@string/event_date_hint"
+                        android:inputType="date" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/ButtonStyle"
+                    android:text="@string/submit" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/ButtonStyle"
+                    android:text="@string/reset" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

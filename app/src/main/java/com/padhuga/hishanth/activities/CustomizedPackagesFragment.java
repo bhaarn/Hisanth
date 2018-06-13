@@ -11,8 +11,8 @@ import com.padhuga.hishanth.R;
 
 public class CustomizedPackagesFragment extends Fragment {
 
-    public static CorporatePackagesFragment newInstance() {
-        return new CorporatePackagesFragment();
+    public static CustomizedPackagesFragment newInstance() {
+        return new CustomizedPackagesFragment();
     }
 
     @Override

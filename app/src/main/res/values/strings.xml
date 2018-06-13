@@ -56,8 +56,8 @@
     <string name="general_help2"><u><b>Can I get any Discount in the services ?</b></u> \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
     <string name="general_help3"><u><b>Can I customise My own Service packages ?</b></u> \n Feel free to ask Customized package which match your budget from Customized Packages Tab.</string>
     <string name="general_help4"><u><b>Is there a way to see demo videos / photos ?</b></u> \n If you want demo videos, feel free to ask us and we will show you in our office. \n No Demo videos will be posted Online or in Application. \n We believe that customer privacy is very important</string>
-    <string name="general_help5"><u><b>Are you supporting with your services through Tamil Nadu ?</b></u> \n Currently we are supporting Madurai and Ramanathapuram only.  But we support
-    all the cities of Tamil Nadu on Demand.</string>
+    <string name="general_help5"><u><b>Are you supporting with your services through Tamil Nadu ?</b></u> \n Currently we are have office in Madurai and Ramanathapuram.  But we support
+    through out India on Demand.  Travel and Accommodation needs to be provided by you for the entire trip outside Madurai and Ramanathapuram.</string>
     <string name="general_help6"><u><b>How much days will it take to get my photos / videos from the event date ?</b></u> \n We will delivery your contents within a week from your event date.</string>
     <string name="general_help7"><u><b>How can I collect my Photos / Videos ?</b></u> \n While registration, you can either select Self Collection or Door Delivery from Mode of Delivery
     Drop down.  The price will vary based on the selection.  You can also change the mode after submission also.  The charges may vary based on the change.</string>
@@ -140,9 +140,19 @@
     <string name="video_help15"><u><b>What is Wedding Videography ?</b></u> \n Traditional way of capturing the Weddings.  This art is living with us for the past 100 years and it has
     become a custom now along with other rituals.</string>
 
-    <string name="corporate_packages">Corporate Packages</string>
-    <string name="personal_packages">Personal Packages</string>
-    <string name="customized_packages">Customized Packages</string>
+    <string name="event_date_hint">Please Select the Date Of Event</string>
+    <string name="place_value_error">You did not enter the Count</string>
+    <string name="alert_corporate_services_module_name">registration</string>
+    <string name="number_of_students">Total Number of Students</string>
+    <string name="number_of_employees">Total Number of Employees</string>
+    <string name="number_of_people">Total Number of People</string>
+    <string name="number_of_cards">Total Number of Cards</string>
+    <string name="number_of_banners">Total Number of Banners</string>
+    <string name="number_of_students_hint">Count of Students</string>
+    <string name="number_of_employees_hint">Count of Employees</string>
+    <string name="number_of_people_hint">Count of People</string>
+    <string name="number_of_cards_hint">Count of Cards</string>
+    <string name="number_of_banners_hint">Count of Banners</string>
 
     <string name="contact_us">Contact Us</string>
     <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
@@ -268,6 +278,16 @@
         <item>Please Select the Mode Of Delivery *</item>
         <item>Self Collection</item>
         <item>Door Delivery</item>
+    </string-array>
+    
+    <string-array name="corporate_services_array">
+        <item>Please Select The Required Service *</item>
+        <item>School ID Card Photo Shoot</item>
+        <item>College ID Card Photo Shoot</item>
+        <item>Company Employee Card Photo Shoot</item>
+        <item>Government Specific Cards Photo Shoot</item>
+        <item>Visiting Cards Printing</item>
+        <item>Flex Banners</item>
     </string-array>
 
 </resources>

@@ -4,8 +4,6 @@ import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -19,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,10 +27,7 @@ import com.google.android.gms.location.LocationServices;
 import com.padhuga.hishanth.R;
 import com.padhuga.hishanth.utils.Utils;
 
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener, GoogleApiClient.ConnectionCallbacks,
@@ -44,7 +38,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     CardView localityCardView;
     CardView cityCardView;
     CardView pincodeCardView;
-
     EditText editText1;
     EditText editText2;
     EditText editText3;
@@ -53,27 +46,21 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     EditText editText6;
     EditText editText7;
     EditText gpsAddress;
-
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
-
     Button button1;
     Button button2;
-
     DatePickerDialog.OnDateSetListener date;
     Calendar myCalendar;
-
     String selectedCity;
     String selectedService;
     String selectedDeliveryMode;
     String details;
     Utils utils;
     String address;
-
     Double latitude;
     Double longitude;
-
     private GoogleApiClient mGoogleApiClient;
 
     public static RegistrationFragment newInstance() {
@@ -84,10 +71,8 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_registration, container, false);
-
         myCalendar = Calendar.getInstance();
         utils = new Utils(getActivity());
-
         mGoogleApiClient = new GoogleApiClient.Builder(Objects.requireNonNull(getActivity()))
                 .addConnectionCallbacks(this)
                 .addApi(LocationServices.API)
@@ -100,7 +85,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         localityCardView = rootView.findViewById(R.id.localityCardView);
         cityCardView = rootView.findViewById(R.id.cityCardView);
         pincodeCardView = rootView.findViewById(R.id.pincodeCardView);
-
         editText1 = rootView.findViewById(R.id.editText1);
         editText2 = rootView.findViewById(R.id.editText2);
         editText3 = rootView.findViewById(R.id.editText3);
@@ -110,7 +94,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         editText7 = rootView.findViewById(R.id.editText7);
         editText7.setOnClickListener(viewClickListener);
         gpsAddress = rootView.findViewById(R.id.gpsAddress);
-
         spinner1 = rootView.findViewById(R.id.spinner1);
         ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.city_array));
         spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item);
@@ -129,23 +112,11 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         spinner3.setBackgroundResource(R.drawable.spinner_text_selection_style);
         spinner3.setAdapter(spinnerArrayAdapter3);
         spinner3.setOnItemSelectedListener(this);
-
         button1 = rootView.findViewById(R.id.button1);
-        button2 = rootView.findViewById(R.id.button2);
         button1.setOnClickListener(viewClickListener);
+        button2 = rootView.findViewById(R.id.button2);
         button2.setOnClickListener(viewClickListener);
-
-        date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                utils.updateLabel(myCalendar, editText7);
-            }
-        };
-
+        date = utils.setDate(date, myCalendar, editText7);
         return rootView;
     }
 
@@ -153,7 +124,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.editText7:
-                    dateSetter();
+                    utils.dateSetter(date, myCalendar);
                     break;
 
                 case R.id.button1:
@@ -188,30 +159,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
 
     }
 
-    private String getAddress(double latitude, double longitude) {
-        Geocoder geocoder;
-        List<Address> addresses;
-        geocoder = new Geocoder(getActivity(), Locale.getDefault());
-        StringBuilder address;
-        String finalAddress;
-        try {
-            addresses = geocoder.getFromLocation(latitude, longitude, 1);
-            if (addresses != null) {
-                address = new StringBuilder();
-                for (int i = 0; i <= addresses.get(0).getMaxAddressLineIndex(); i++) {
-                    address.append(addresses.get(0).getAddressLine(i)).append("\n");
-                }
-                finalAddress = address.toString();
-            } else {
-                finalAddress = "No Address Returned";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            finalAddress = "Cannot Find Address";
-        }
-        return finalAddress;
-    }
-
     private void disableAddressFields() {
         addressCardView.setVisibility(View.GONE);
         localityCardView.setVisibility(View.GONE);
@@ -229,22 +176,14 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         gpsAddressCardView.setVisibility(View.GONE);
     }
 
-    private void dateSetter() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getActivity()), date, myCalendar
-                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-        datePickerDialog.show();
-    }
-
     private void validationCheck() {
         if (editText1.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.name_error, Toast.LENGTH_SHORT).show();
-        } else if (editText2.getText().toString().matches("") && editText2.getVisibility() == View.VISIBLE) {
+        } else if (editText2.getText().toString().matches("") && addressCardView.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.address_error, Toast.LENGTH_SHORT).show();
-        } else if (editText3.getText().toString().matches("") && editText3.getVisibility() == View.VISIBLE) {
+        } else if (editText3.getText().toString().matches("") && localityCardView.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.locality_error, Toast.LENGTH_SHORT).show();
-        } else if (editText4.getText().toString().matches("") && editText4.getVisibility() == View.VISIBLE) {
+        } else if (editText4.getText().toString().matches("") && pincodeCardView.getVisibility() == View.VISIBLE) {
             Toast.makeText(getActivity(), R.string.pincode_error, Toast.LENGTH_SHORT).show();
         } else if (editText5.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.mobile_error, Toast.LENGTH_SHORT).show();
@@ -257,7 +196,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
                     + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
                     + "Mode of Delivery : " + selectedDeliveryMode + "\n";
-            utils.showPrice(details);
+            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_registration_module_name));
         }
     }
 
@@ -330,7 +269,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
-        address = getAddress(latitude, longitude);
+        address = utils.getAddress(latitude, longitude);
         if (address.equalsIgnoreCase("No Address Returned") ||
                 address.equalsIgnoreCase("Cannot Find Address")) {
             enableAddressFields();
