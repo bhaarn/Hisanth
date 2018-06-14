@@ -24,6 +24,7 @@
                     android:id="@+id/editText1"
                     style="@style/EditTextStyle"
                     android:hint="@string/name_hint"
+                    android:maxLength="40"
                     android:inputType="textCapWords" />
 
             </LinearLayout>
@@ -44,7 +45,7 @@
                     android:id="@+id/gpsAddress"
                     style="@style/EditTextStyle"
                     android:hint="@string/address_hint"
-                    android:inputType="none" />
+                    android:inputType="textPostalAddress" />
 
             </LinearLayout>
 
@@ -64,7 +65,7 @@
                     android:id="@+id/editText2"
                     style="@style/EditTextStyle"
                     android:hint="@string/address_hint"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textPostalAddress" />
 
             </LinearLayout>
 
@@ -84,6 +85,7 @@
                     android:id="@+id/editText3"
                     style="@style/EditTextStyle"
                     android:hint="@string/locality_hint"
+                    android:maxLength="30"
                     android:inputType="textCapWords" />
 
             </LinearLayout>
@@ -124,6 +126,7 @@
                     android:id="@+id/editText4"
                     style="@style/EditTextStyle"
                     android:hint="@string/pincode_hint"
+                    android:maxLength="6"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -138,10 +141,15 @@
                     style="@style/RegistrationTextViewStyle"
                     android:text="@string/mobile" />
 
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/mobile_country_code" />
+
                 <EditText
                     android:id="@+id/editText5"
                     style="@style/EditTextStyle"
                     android:hint="@string/mobile_hint"
+                    android:maxLength="10"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -160,6 +168,7 @@
                     android:id="@+id/editText6"
                     style="@style/EditTextStyle"
                     android:hint="@string/email_hint"
+                    android:maxLength="60"
                     android:inputType="textEmailAddress" />
 
             </LinearLayout>

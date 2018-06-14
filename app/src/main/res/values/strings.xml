@@ -10,6 +10,7 @@
     <string name="city">City *</string>
     <string name="pincode">PinCode *</string>
     <string name="mobile">Mobile Number *</string>
+    <string name="mobile_country_code"><u><b>+91 - </b></u></string>
     <string name="email">Email ID *</string>
     <string name="services">Required Service *</string>
     <string name="date">Date Of Function *</string>
@@ -35,6 +36,8 @@
     <string name="email_error">You did not enter the Email ID</string>
     <string name="date_error">You did not enter the Function Date</string>
     <string name="end_date_error">You did not enter the Function End Date</string>
+    <string name="mobile_validate_error">Please Enter a Valid Mobile Number</string>
+    <string name="email_validate_error">Please Enter a Valid Email ID</string>
     <string name="price">Service Charge would be : </string>
     <string name="tax">Overall Tax would be : </string>
     <string name="discount">Overall Discount would be : </string>
@@ -140,9 +143,14 @@
     <string name="video_help15"><u><b>What is Wedding Videography ?</b></u> \n Traditional way of capturing the Weddings.  This art is living with us for the past 100 years and it has
     become a custom now along with other rituals.</string>
 
+    <string name="event_date">Date Of Event *</string>
     <string name="event_date_hint">Please Select the Date Of Event</string>
     <string name="place_value_error">You did not enter the Count</string>
-    <string name="alert_corporate_services_module_name">registration</string>
+    <string name="event_date_error">You did not enter the Event Date</string>
+    <string name="venue">Venue</string>
+    <string name="venue_hint">Please Enter Venue Details</string>
+    <string name="venue_error">You did not enter the Address</string>
+    <string name="alert_corporate_services_module_name">corporate_packages</string>
     <string name="number_of_students">Total Number of Students</string>
     <string name="number_of_employees">Total Number of Employees</string>
     <string name="number_of_people">Total Number of People</string>
@@ -256,7 +264,7 @@
         <item>Talent Recruitment Videography</item>
         <item>Wedding Videography</item>
     </string-array>
-    
+
     <string-array name="function_array">
         <item>Please Select The Required Function *</item>
         <item>Wedding</item>
@@ -279,15 +287,33 @@
         <item>Self Collection</item>
         <item>Door Delivery</item>
     </string-array>
-    
+
     <string-array name="corporate_services_array">
         <item>Please Select The Required Service *</item>
-        <item>School ID Card Photo Shoot</item>
         <item>College ID Card Photo Shoot</item>
         <item>Company Employee Card Photo Shoot</item>
-        <item>Government Specific Cards Photo Shoot</item>
-        <item>Visiting Cards Printing</item>
+        <item>Dance Concert</item>
         <item>Flex Banners</item>
+        <item>Government Specific Cards Photo Shoot</item>
+        <item>Music Concert</item>
+        <item>School ID Card Photo Shoot</item>
+        <item>Visiting Cards Printing</item>
+    </string-array>
+
+    <string-array name="personal_services_array">
+        <item>Please Select The Required Service *</item>
+        <item>Baby Showering Ceremony</item>
+        <item>Betrothal / Engagement Function</item>
+        <item>BirthDay Function</item>
+        <item>Dance Concert</item>
+        <item>Ear Piercing Ceremony</item>
+        <item>Girl Maturity Ceremony</item>
+        <item>Holy Thread Wearing Ceremony</item>
+        <item>House Warming Ceremony</item>
+        <item>Marriage / Wedding Function</item>
+        <item>Music Concert</item>
+        <item>Pre Wedding Shoot</item>
+        <item>Sangeeth / Mehanthi Function</item>
     </string-array>
 
 </resources>

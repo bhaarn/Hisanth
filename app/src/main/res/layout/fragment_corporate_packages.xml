@@ -5,9 +5,13 @@
 
         <LinearLayout style="@style/LinearLayoutStyleVertical">
 
-            <TextView
-                style="@style/RegistrationTextViewStyle"
-                android:text="@string/mandatory_fields" />
+            <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/mandatory_fields" />
+
+            </android.support.v7.widget.CardView>
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
@@ -23,23 +27,24 @@
 
             </LinearLayout>
 
-            <LinearLayout android:id="@+id/linearLayout1"
+            <LinearLayout
+                android:id="@+id/linearLayout1"
                 style="@style/LinearLayoutStyleVertical"
                 android:visibility="gone">
 
-                <LinearLayout
-                    style="@style/LinearLayoutStyleHorizontal">
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
                     <TextView
                         android:id="@+id/textView1"
                         style="@style/RegistrationTextViewStyle"
-                        android:text="@string/app_name"/>
+                        android:text="@string/app_name" />
 
                     <EditText
                         android:id="@+id/editText1"
                         style="@style/EditTextStyle"
                         android:hint="@string/app_name"
-                        android:inputType="textCapWords" />
+                        android:inputType="number"
+                        android:maxLength="10" />
 
                 </LinearLayout>
 
@@ -47,7 +52,7 @@
 
                     <TextView
                         style="@style/RegistrationTextViewStyle"
-                        android:text="@string/date" />
+                        android:text="@string/event_date" />
 
                     <EditText
                         android:id="@+id/editText2"
@@ -59,15 +64,72 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/button1"
-                    style="@style/ButtonStyle"
-                    android:text="@string/submit" />
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
-                <Button
-                    android:id="@+id/button2"
-                    style="@style/ButtonStyle"
-                    android:text="@string/reset" />
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/venue" />
+
+                    <EditText
+                        android:id="@+id/editText3"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/venue_hint"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/mobile" />
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/mobile_country_code" />
+
+                    <EditText
+                        android:id="@+id/editText4"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/mobile_hint"
+                        android:inputType="number"
+                        android:maxLength="10" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/email" />
+
+                    <EditText
+                        android:id="@+id/editText5"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/email_hint"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="60" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                    <Button
+                        android:id="@+id/button1"
+                        style="@style/ButtonStyle"
+                        android:text="@string/submit" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                    <Button
+                        android:id="@+id/button2"
+                        style="@style/ButtonStyle"
+                        android:text="@string/reset" />
+
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 

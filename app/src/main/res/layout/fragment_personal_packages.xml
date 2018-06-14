@@ -1,11 +1,140 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPackagesFragment"
-    android:scrollbars="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LinearLayoutStyleVertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/app_name"/>
-</RelativeLayout>
+    <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+        <LinearLayout style="@style/LinearLayoutStyleVertical">
+
+            <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/mandatory_fields" />
+
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/services" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner1"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/corporate_services_array"
+                    android:prompt="@string/services_hint" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                style="@style/LinearLayoutStyleVertical"
+                android:visibility="gone">
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/app_name" />
+
+                    <EditText
+                        android:id="@+id/editText1"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/app_name"
+                        android:inputType="number"
+                        android:maxLength="10" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/event_date" />
+
+                    <EditText
+                        android:id="@+id/editText2"
+                        style="@style/EditTextStyle"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:hint="@string/event_date_hint"
+                        android:inputType="date" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/venue" />
+
+                    <EditText
+                        android:id="@+id/editText3"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/venue_hint"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/mobile" />
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/mobile_country_code" />
+
+                    <EditText
+                        android:id="@+id/editText4"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/mobile_hint"
+                        android:inputType="number"
+                        android:maxLength="10" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                    <TextView
+                        style="@style/RegistrationTextViewStyle"
+                        android:text="@string/email" />
+
+                    <EditText
+                        android:id="@+id/editText5"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/email_hint"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="60" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                    <Button
+                        android:id="@+id/button1"
+                        style="@style/ButtonStyle"
+                        android:text="@string/submit" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+                    <Button
+                        android:id="@+id/button2"
+                        style="@style/ButtonStyle"
+                        android:text="@string/reset" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

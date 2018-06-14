@@ -149,6 +149,7 @@ public class Utils {
                 activity.startActivity(myIntent);
                 break;
             case "registration":
+            case "corporate_packages":
                 sendEmail(details);
                 break;
         }
@@ -161,6 +162,7 @@ public class Utils {
                 activity.startActivity(myIntent);
                 break;
             case "registration":
+            case "corporate_packages":
                 break;
         }
     }
@@ -209,8 +211,8 @@ public class Utils {
         final_price.setText("75256.00");
     }
 
-    public DatePickerDialog.OnDateSetListener setDate(DatePickerDialog.OnDateSetListener date, final Calendar myCalendar, final EditText editText7) {
-        date = new DatePickerDialog.OnDateSetListener() {
+    public DatePickerDialog.OnDateSetListener setDate(final Calendar myCalendar, final EditText editText7) {
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
@@ -253,5 +255,9 @@ public class Utils {
             finalAddress = "Cannot Find Address";
         }
         return finalAddress;
+    }
+
+    public boolean isEmailValid(String email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 }

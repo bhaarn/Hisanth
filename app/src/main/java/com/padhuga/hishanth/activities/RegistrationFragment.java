@@ -62,6 +62,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     Double latitude;
     Double longitude;
     private GoogleApiClient mGoogleApiClient;
+    boolean addressEnabled = false;
 
     public static RegistrationFragment newInstance() {
         return new RegistrationFragment();
@@ -116,7 +117,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         button1.setOnClickListener(viewClickListener);
         button2 = rootView.findViewById(R.id.button2);
         button2.setOnClickListener(viewClickListener);
-        date = utils.setDate(date, myCalendar, editText7);
+        date = utils.setDate(myCalendar, editText7);
         return rootView;
     }
 
@@ -191,11 +192,21 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
             Toast.makeText(getActivity(), R.string.email_error, Toast.LENGTH_SHORT).show();
         } else if (editText7.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.date_error, Toast.LENGTH_SHORT).show();
+        } else if (editText5.getText().toString().trim().length() < 10) {
+            Toast.makeText(getActivity(), R.string.mobile_validate_error, Toast.LENGTH_SHORT).show();
+        } else if(!utils.isEmailValid(editText6.getText().toString())) {
+            Toast.makeText(getActivity(), R.string.email_validate_error, Toast.LENGTH_SHORT).show();
         } else {
-            details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + editText2.getText().toString() + "\n" + "Locality : " + editText3.getText().toString() +
-                    "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
-                    + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
-                    + "Mode of Delivery : " + selectedDeliveryMode + "\n";
+            if(addressEnabled) {
+                details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + editText2.getText().toString() + "\n" + "Locality : " + editText3.getText().toString() +
+                        "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
+                        + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
+                        + "Mode of Delivery : " + selectedDeliveryMode + "\n";
+            } else {
+                details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + gpsAddress.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
+                        + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
+                        + "Mode of Delivery : " + selectedDeliveryMode + "\n";
+            }
             utils.showPrice(details, getActivity().getResources().getString(R.string.alert_registration_module_name));
         }
     }
@@ -217,6 +228,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     public void onConnected(Bundle bundle) {
         if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
+            addressEnabled = true;
             return;
         }
         startLocationUpdates();
@@ -260,6 +272,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                 .setFastestInterval(FASTEST_INTERVAL);
         if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
+            addressEnabled = true;
             return;
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -273,8 +286,10 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         if (address.equalsIgnoreCase("No Address Returned") ||
                 address.equalsIgnoreCase("Cannot Find Address")) {
             enableAddressFields();
+            addressEnabled = true;
         } else {
             disableAddressFields();
+            addressEnabled = false;
         }
     }
 
