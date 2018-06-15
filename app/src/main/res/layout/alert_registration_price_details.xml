@@ -9,9 +9,26 @@
 
                 <TextView
                     style="@style/RegistrationTextViewStyle"
+                    android:text="@string/disclaimer3" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/disclaimer4" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
                     android:text="@string/price" />
 
-                <TextView android:id="@+id/price"
+                <TextView
+                    android:id="@+id/price"
                     style="@style/RegistrationTextViewStyle" />
 
             </LinearLayout>
@@ -22,7 +39,8 @@
                     style="@style/RegistrationTextViewStyle"
                     android:text="@string/tax" />
 
-                <TextView android:id="@+id/tax"
+                <TextView
+                    android:id="@+id/tax"
                     style="@style/RegistrationTextViewStyle" />
 
             </LinearLayout>
@@ -34,7 +52,8 @@
                     style="@style/RegistrationTextViewStyle"
                     android:text="@string/discount" />
 
-                <TextView android:id="@+id/discount"
+                <TextView
+                    android:id="@+id/discount"
                     style="@style/RegistrationTextViewStyle" />
 
             </LinearLayout>
@@ -45,11 +64,14 @@
                     style="@style/RegistrationTextViewStyle"
                     android:text="@string/final_price" />
 
-                <TextView android:id="@+id/final_price"
+                <TextView
+                    android:id="@+id/final_price"
                     style="@style/RegistrationTextViewStyle" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

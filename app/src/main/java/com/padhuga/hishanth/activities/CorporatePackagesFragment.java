@@ -130,7 +130,7 @@ public class CorporatePackagesFragment extends Fragment implements AdapterView.O
                         "Venue : " + editText2.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
                         + "Email ID : " + editText5.getText().toString() + "\n";
             }
-            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_corporate_services_module_name));
+            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_corporate_services_module_name), "");  // Bharani - Needs to Fix this
         }
     }
 

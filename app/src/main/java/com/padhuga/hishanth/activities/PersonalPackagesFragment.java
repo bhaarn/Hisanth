@@ -130,7 +130,7 @@ public class PersonalPackagesFragment extends Fragment implements AdapterView.On
                         "Venue : " + editText2.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
                         + "Email ID : " + editText5.getText().toString() + "\n";
             }
-            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_corporate_services_module_name));
+            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_corporate_services_module_name), "");  // Bharani - Needs to fix this
         }
     }
 
@@ -146,8 +146,23 @@ public class PersonalPackagesFragment extends Fragment implements AdapterView.On
 
     private void manipulateService(String selectedService) {
         switch (selectedService) {
-            default:
+            case "Baby Showering Ceremony":
+            case "Betrothal / Engagement Function":
+            case "BirthDay Function":
+            case "Dance Concert":
+            case "Ear Piercing Ceremony":
+            case "Girl Maturity Ceremony":
+            case "Holy Thread Wearing Ceremony":
+            case "House Warming Ceremony":
+            case "Marriage / Wedding Function":
+            case "Music Concert":
+            case "Pre Wedding Shoot":
+            case "Sangeeth / Mehanthi Function":
                 linearLayout1.setVisibility(View.VISIBLE);
+                textView1.setVisibility(View.GONE);
+                editText1.setVisibility(View.GONE);
+                break;
+            default:
                 break;
         }
     }

@@ -233,6 +233,24 @@
 
         <android.support.v7.widget.CardView style="@style/CardViewStyle">
 
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
+                    android:text="@string/package_type" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner4"
+                    style="@style/SpinnerStyle"
+                    android:entries="@array/package_type_array"
+                    android:prompt="@string/package_type_hint" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
             <Button
                 android:id="@+id/button1"
                 style="@style/ButtonStyle"

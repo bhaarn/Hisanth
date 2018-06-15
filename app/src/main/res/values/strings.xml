@@ -15,6 +15,7 @@
     <string name="services">Required Service *</string>
     <string name="date">Date Of Function *</string>
     <string name="delivery_mode">Mode Of Delivery *</string>
+    <string name="package_type">Type of Package *</string>
     <string name="name_hint">Please Enter Your Name</string>
     <string name="address_hint">Please Enter Your Address</string>
     <string name="locality_hint">Please Enter Your Locality</string>
@@ -25,6 +26,7 @@
     <string name="services_hint">Please Select The Required Service</string>
     <string name="date_hint">Please Select the Date Of Function</string>
     <string name="delivery_mode_hint">Please Select the Mode Of Delivery</string>
+    <string name="package_type_hint">Please Select the Type of Package</string>
     <string name="submit">Submit</string>
     <string name="reset">Reset Values</string>
     <string name="name_error">You did not enter the Name</string>
@@ -54,6 +56,17 @@
     <string name="disclaimer1">Feel free to ask Customized package which match your budget from Customized Packages Tab. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
     <string name="disclaimer2">If you want demo videos, feel free to ask us and we will show you in our office. \n No Demo videos will be posted Online or in Application. \n We believe that customer privacy is very important</string>
 
+    <string name="disclaimer3">We require 50% of the selected package cost and 100% of the travel cost (If applicable) to finalize the date. This advance is non-refundable because
+        when we commit dates to you, we turn away other enquiries and lose potential business. Another 40% is required on the event day as 2nd advance and the balance 10% on delivery
+        of albums and videos.</string>
+    <string name="disclaimer4">Copyright and Usage \n We reserve the artist copyright of all images and reserve the right to use a selection to promote our own work on our website,
+        in publications (online and offline) as well as social media. However, we will not be selling these images or using them for other commercial gain. You will have full usage rights
+        on your wedding photos and can use them in any manner you see fit, as long as it is not for commercial gain.</string>
+
+    <string name="general_help_heading"><u><b>General Queries</b></u></string>
+    <string name="functions_help_heading"><u><b>Queries Specific To Functions</b></u></string>
+    <string name="photography_help_heading"><u><b>Queries Specific To Photography Services</b></u></string>
+    <string name="videography_help_heading"><u><b>Queries Specific To Videography Services</b></u></string>
     <string name="general_help1"><u><b>How to contact us ?</b></u> \n We can be contacted by Whatsapp, Facebook, Youtube, Google Maps, Email, SMS and Phone Call.  Please check the ways of contacting
         us in the "Contact Us" tab</string>
     <string name="general_help2"><u><b>Can I get any Discount in the services ?</b></u> \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
@@ -70,6 +83,11 @@
     start this service also.</string>
     <string name="general_help10"><u><b>Do you print Flex banners and other banners ?</b></u> \n As of now we are not doing this service.  But in future, we have a plan to
     start this service also.</string>
+    <string name="general_help11"><u><b>What is Traditional Package ?</b></u> \n One Traditional Photographer \n One Traditional Videographer using Full HD Video Camera \n Professionally Edited Video final Full HD output in USB Pen drive \n
+            300 selected photos in custom designed premium 36x12 inch Magazine Album made of Non-Tearing Synthetic sheets \n Rs. 50,000/-</string>
+    <string name="general_help12"><u><b>What is Premium Package ?</b></u> \n Two Still Photographers - One Candid and One Traditional \n One Traditional Videographer using Full HD Video camera \n
+                Professional Edited Video final Full HD output in USB Pen drive \n 60 selected post processed candid images in a 60 page 8x9 inch Designer Coffee Table Book \n
+                400 selected photos in custom designed premium 36x12 inch Magazine Album made of Non-Tearing Synthetic Sheets \n 4 to 5 minute short, crisp, creative HD Video Story \n Rs. 75,000/-</string>
     <string name="photo_help1"><u><b>What is Aerial Photography ?</b></u> \n As soon as our flight takes off, we love to shoot the landscape or city scene below which gives us an advantage of taking a picture from above.
           So, images that are captured from above is known as aerial photography.  Drones are used for this purpose.</string>
     <string name="photo_help2"><u><b>What is Architectural photography ?</b></u> \n Capturing an interesting form, shape or colour of the structure can be visually appealing.  Therefore visuals of
@@ -142,6 +160,25 @@
         can help HR departments target specific markets for recruiting the most appropriate talent.  They can used in conjunction with classified ads on employment websites.</string>
     <string name="video_help15"><u><b>What is Wedding Videography ?</b></u> \n Traditional way of capturing the Weddings.  This art is living with us for the past 100 years and it has
     become a custom now along with other rituals.</string>
+    <string name="functions_help1"><u><b>What is Baby Showering Ceremony ?</b></u> \n வளைகாப்பு , சீமந்தம் - A baby shower is a way to celebrate the expected or delivered birth of a child by presenting gifts to the mother at a Function</string>
+    <string name="functions_help2"><u><b>What is Betrothal / Engagement Function ?</b></u> \n நிச்சயம், நிச்சயதார்த்தம் , பரிசம் - An Engagement or Betrothal, is a promise to wed, and also the period of time between a marriage proposal and a marriage.</string>
+    <string name="functions_help3"><u><b>What is BirthDay Function ?</b></u> \n பிறந்தநாள் - A birthday is the anniversary of the birth of a person, or figuratively of an institution</string>
+    <string name="functions_help4"><u><b>What is Dance Concert ?</b></u> \n நாட்டியம் , நடனம் - Concert dance is dance performed for an audience. It is frequently performed in a
+        theatre setting, though this is not a requirement, and it is usually choreographed and performed to set music.</string>
+    <string name="functions_help5"><u><b>What is Ear Piercing Ceremony ?</b></u> \n காது குத்தல், காது குத்து - Practice of the piercing of the ears and it is one of the important
+        Hindu ceremony which is typically performed between the first and fifth year of life.</string>
+    <string name="functions_help6"><u><b>What is Girl Maturity Ceremony ?</b></u> \n பூப்பெய்தல் - This is about the Girl\'s coming of Age ceremony</string>
+    <string name="functions_help7"><u><b>What is Holy Thread Wearing Ceremony ?</b></u> \n பூநூல் கல்யாணம்  - It is wearing of sacred thread ceremony done in certain communities in India</string>
+    <string name="functions_help8"><u><b>What is House Warming Ceremony ?</b></u> \n புது மனை புகுவிழா , கிரக பிரவேசம் - A house-warming ceremony is a function traditionally held soon after
+        moving into a new residence. It is an occasion for the hosts to present their new home to their friends, pre-moving, and for friends to give gifts to furnish the new home.</string>
+    <string name="functions_help9"><u><b>What is Marriage / Wedding Function ?</b></u> \n திருமணம், மணவிழா, கல்யாணம், நிக்காஹ் - This is a traditional ceremony where a bride and bridegroom
+    are officially transformed into Husband and Wife.</string>
+    <string name="functions_help10"><u><b>What is Music Concert ?</b></u> \n பாட்டு நிகழ்ச்சி, இசை நிகழ்ச்சி - A Music concert is a live music performance in front of an audience. The performance
+        may be by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, choir, or band.</string>
+    <string name="functions_help11"><u><b>What is Pre Wedding Shoot ?</b></u> \n Pre Wedding Photo Shoot Function normally happens a day before Marriage or on Engagement day. The Bride and Bridegroom
+    are photoshooted in different angles, different poses and different gestures.</string>
+    <string name="functions_help12"><u><b>What is Sangeeth / Mehanthi Function ?</b></u> \n This function is mainly celebrated in North India and with North Indian Communities.  This is a
+    get together function for the relatives of the Bride and Groom before marriage.</string>
 
     <string name="event_date">Date Of Event *</string>
     <string name="event_date_hint">Please Select the Date Of Event</string>
@@ -314,6 +351,12 @@
         <item>Music Concert</item>
         <item>Pre Wedding Shoot</item>
         <item>Sangeeth / Mehanthi Function</item>
+    </string-array>
+
+    <string-array name="package_type_array">
+        <item>Please Select the Required Package *</item>
+        <item>Traditional Package</item>
+        <item>Premium Package</item>
     </string-array>
 
 </resources>

@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.padhuga.hishanth.R;
 import com.padhuga.hishanth.activities.MainActivity;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -118,7 +120,7 @@ public class Utils {
         editText.setText(sdf.format(myCalendar.getTime()));
     }
 
-    public void showAlert(String title, String message, String positiveButton, String negativeButton, final String parent, final String details) {
+    public void showAlert(String title, String message, String positiveButton, String negativeButton, final String parent, final String details, final String packageType) {
         final View view = activity.getLayoutInflater().inflate(R.layout.alert_registration_price_details, null);
         final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
         dialog.setTitle(title)
@@ -137,7 +139,7 @@ public class Utils {
                 });
         if (!details.equals("")) {
             dialog.setView(view);
-            calculatePrice(view);
+            calculatePrice(view, packageType);
         }
         dialog.show();
     }
@@ -194,21 +196,28 @@ public class Utils {
         activity.startActivity(intent);
     }
 
-    public void showPrice(String details, String moduleName) {
+    public void showPrice(String details, String moduleName, String packageType) {
         showAlert(activity.getResources().getString(R.string.alert_registration_submit_title), activity.getResources().getString(R.string.alert_registration_submit_message),
                 activity.getResources().getString(R.string.alert_registration_submit_positive_button), activity.getResources().getString(android.R.string.cancel),
-                moduleName, details);
+                moduleName, details, packageType);
     }
 
-    private void calculatePrice(View view) {
+    private void calculatePrice(View view, String packageType) {
         TextView price = view.findViewById(R.id.price);
         TextView tax = view.findViewById(R.id.tax);
         TextView discount = view.findViewById(R.id.discount);
         TextView final_price = view.findViewById(R.id.final_price);
-        price.setText("75000.00");
-        tax.setText("256.00");
-        discount.setText("0.00");
-        final_price.setText("75256.00");
+        if(packageType.equals("Traditional Package")) {
+            price.setText("50000.00");
+            tax.setText("256.00");
+            discount.setText("0.00");
+            final_price.setText("50256.00");
+        } else if(packageType.equals("Premium Package")){
+            price.setText("75000.00");
+            tax.setText("256.00");
+            discount.setText("0.00");
+            final_price.setText("75256.00");
+        }
     }
 
     public DatePickerDialog.OnDateSetListener setDate(final Calendar myCalendar, final EditText editText7) {

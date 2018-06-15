@@ -49,6 +49,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
+    Spinner spinner4;
     Button button1;
     Button button2;
     DatePickerDialog.OnDateSetListener date;
@@ -56,6 +57,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     String selectedCity;
     String selectedService;
     String selectedDeliveryMode;
+    String selectedPackageType;
     String details;
     Utils utils;
     String address;
@@ -113,6 +115,12 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         spinner3.setBackgroundResource(R.drawable.spinner_text_selection_style);
         spinner3.setAdapter(spinnerArrayAdapter3);
         spinner3.setOnItemSelectedListener(this);
+        spinner4 = rootView.findViewById(R.id.spinner4);
+        ArrayAdapter<String> spinnerArrayAdapter4 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.package_type_array));
+        spinnerArrayAdapter4.setDropDownViewResource(R.layout.spinner_item);
+        spinner4.setBackgroundResource(R.drawable.spinner_text_selection_style);
+        spinner4.setAdapter(spinnerArrayAdapter4);
+        spinner4.setOnItemSelectedListener(this);
         button1 = rootView.findViewById(R.id.button1);
         button1.setOnClickListener(viewClickListener);
         button2 = rootView.findViewById(R.id.button2);
@@ -152,6 +160,10 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
             case R.id.spinner3:
                 selectedDeliveryMode = adapterView.getItemAtPosition(position).toString();
                 break;
+            case R.id.spinner4:
+                selectedPackageType = adapterView.getItemAtPosition(position).toString();
+                break;
+
         }
     }
 
@@ -201,13 +213,13 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                 details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + editText2.getText().toString() + "\n" + "Locality : " + editText3.getText().toString() +
                         "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
                         + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
-                        + "Mode of Delivery : " + selectedDeliveryMode + "\n";
+                        + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
             } else {
                 details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + gpsAddress.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
                         + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
-                        + "Mode of Delivery : " + selectedDeliveryMode + "\n";
+                        + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
             }
-            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_registration_module_name));
+            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_registration_module_name), selectedPackageType);
         }
     }
 
@@ -222,6 +234,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         spinner1.setSelection(0);
         spinner2.setSelection(0);
         spinner3.setSelection(0);
+        spinner4.setSelection(0);
     }
 
     @Override
@@ -297,7 +310,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         if (!isLocationEnabled())
             utils.showAlert(Objects.requireNonNull(getActivity()).getResources().getString(R.string.alert_location_title), getActivity().getResources().getString(R.string.alert_location_message),
                     getActivity().getResources().getString(R.string.alert_location_positive_button), getActivity().getResources().getString(android.R.string.cancel),
-                    getActivity().getResources().getString(R.string.alert_location_module_name), "");
+                    getActivity().getResources().getString(R.string.alert_location_module_name), "", "");
         isLocationEnabled();
     }
 
