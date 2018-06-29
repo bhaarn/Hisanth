@@ -24,8 +24,8 @@
                     android:id="@+id/editText1"
                     style="@style/EditTextStyle"
                     android:hint="@string/name_hint"
-                    android:maxLength="40"
-                    android:inputType="textCapWords" />
+                    android:inputType="textCapWords"
+                    android:maxLength="40" />
 
             </LinearLayout>
 
@@ -33,7 +33,8 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/gpsAddressCardView"
-            style="@style/CardViewStyle">
+            style="@style/CardViewStyle"
+            android:visibility="gone">
 
             <LinearLayout style="@style/LinearLayoutStyleHorizontal">
 
@@ -85,8 +86,8 @@
                     android:id="@+id/editText3"
                     style="@style/EditTextStyle"
                     android:hint="@string/locality_hint"
-                    android:maxLength="30"
-                    android:inputType="textCapWords" />
+                    android:inputType="textCapWords"
+                    android:maxLength="30" />
 
             </LinearLayout>
 
@@ -102,11 +103,10 @@
                     style="@style/RegistrationTextViewStyle"
                     android:text="@string/city" />
 
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinner1"
-                    style="@style/SpinnerStyle"
-                    android:entries="@array/city_array"
-                    android:prompt="@string/city_hint" />
+                <Button
+                    android:id="@+id/button"
+                    style="@style/ButtonStyle"
+                    android:text="@string/city_button" />
 
             </LinearLayout>
 
@@ -126,8 +126,8 @@
                     android:id="@+id/editText4"
                     style="@style/EditTextStyle"
                     android:hint="@string/pincode_hint"
-                    android:maxLength="6"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="6" />
 
             </LinearLayout>
 
@@ -149,8 +149,8 @@
                     android:id="@+id/editText5"
                     style="@style/EditTextStyle"
                     android:hint="@string/mobile_hint"
-                    android:maxLength="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="10" />
 
             </LinearLayout>
 
@@ -168,8 +168,8 @@
                     android:id="@+id/editText6"
                     style="@style/EditTextStyle"
                     android:hint="@string/email_hint"
-                    android:maxLength="60"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:maxLength="60" />
 
             </LinearLayout>
 
@@ -184,7 +184,7 @@
                     android:text="@string/services" />
 
                 <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spinner1"
                     style="@style/SpinnerStyle"
                     android:entries="@array/service_array"
                     android:prompt="@string/services_hint" />
@@ -219,10 +219,29 @@
 
                 <TextView
                     style="@style/RegistrationTextViewStyle"
+                    android:text="@string/venue" />
+
+                <EditText
+                    android:id="@+id/editText8"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/venue_hint"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/CardViewStyle">
+
+            <LinearLayout style="@style/LinearLayoutStyleHorizontal">
+
+                <TextView
+                    style="@style/RegistrationTextViewStyle"
                     android:text="@string/delivery_mode" />
 
                 <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/spinner2"
                     style="@style/SpinnerStyle"
                     android:entries="@array/mode_of_delivery_array"
                     android:prompt="@string/delivery_mode_hint" />
@@ -240,7 +259,7 @@
                     android:text="@string/package_type" />
 
                 <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinner4"
+                    android:id="@+id/spinner3"
                     style="@style/SpinnerStyle"
                     android:entries="@array/package_type_array"
                     android:prompt="@string/package_type_hint" />

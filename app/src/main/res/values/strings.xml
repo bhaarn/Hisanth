@@ -9,6 +9,7 @@
     <string name="locality">Locality *</string>
     <string name="city">City *</string>
     <string name="pincode">PinCode *</string>
+    <string name="city_button">Click to Select the City *</string>
     <string name="mobile">Mobile Number *</string>
     <string name="mobile_country_code"><u><b>+91 - </b></u></string>
     <string name="email">Email ID *</string>
@@ -19,7 +20,6 @@
     <string name="name_hint">Please Enter Your Name</string>
     <string name="address_hint">Please Enter Your Address</string>
     <string name="locality_hint">Please Enter Your Locality</string>
-    <string name="city_hint">Please Select Your City</string>
     <string name="pincode_hint">Please Enter Your PinCode</string>
     <string name="mobile_hint">Please Enter Your Mobile Number</string>
     <string name="email_hint">Please Enter Your Email ID</string>
@@ -186,7 +186,7 @@
     <string name="event_date_error">You did not enter the Event Date</string>
     <string name="venue">Venue</string>
     <string name="venue_hint">Please Enter Venue Details</string>
-    <string name="venue_error">You did not enter the Address</string>
+    <string name="venue_error">You did not enter the Venue Address</string>
     <string name="alert_corporate_services_module_name">corporate_packages</string>
     <string name="number_of_students">Total Number of Students</string>
     <string name="number_of_employees">Total Number of Employees</string>
@@ -230,43 +230,6 @@
     <string name="alert_generic_positive_button">Location Settings</string>
     <string name="alert_permission_message">1. To send SMS to the Owner after you successfully submit your request, SMS Permission is required. \n2. To Call the Owner as soon as you click the mobile number, Call permission is required. \n3. To Automatically Capture your address instead of you typing, Location permission is required.</string>
     <string name="go_to_settings">Go to settings and enable permissions</string>
-
-    <string-array name="city_array">
-        <item>Please Select Your City *</item>
-        <item>Ariyalur</item>
-        <item>Chennai</item>
-        <item>Coimbatore</item>
-        <item>Cuddalore</item>
-        <item>Dharmapuri</item>
-        <item>Dindigul</item>
-        <item>Erode</item>
-        <item>Kanchipuram</item>
-        <item>Kanyakumari</item>
-        <item>Karur</item>
-        <item>Krishnagiri</item>
-        <item>Madurai</item>
-        <item>Nagapattinam</item>
-        <item>Namakkal</item>
-        <item>Perambalur</item>
-        <item>Pudukkottai</item>
-        <item>Ramanathapuram</item>
-        <item>Salem</item>
-        <item>Sivagangai</item>
-        <item>Thanjavur</item>
-        <item>The Nilgiris</item>
-        <item>Theni</item>
-        <item>Thoothukudi</item>
-        <item>Tiruchirappalli</item>
-        <item>Tirunelveli</item>
-        <item>Tiruppur</item>
-        <item>Tiruvallur</item>
-        <item>Tiruvannamalai</item>
-        <item>Tiruvarur</item>
-        <item>Vellore</item>
-        <item>Viluppuram</item>
-        <item>Virudhunagar</item>
-    </string-array>
-
 
     <string-array name="service_array">
         <item>Please Select The Required Service *</item>

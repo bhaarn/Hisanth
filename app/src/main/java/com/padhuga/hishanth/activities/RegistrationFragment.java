@@ -9,7 +9,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,16 +47,17 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     EditText editText5;
     EditText editText6;
     EditText editText7;
+    EditText editText8;
     EditText gpsAddress;
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
-    Spinner spinner4;
     Button button1;
     Button button2;
+    static Button button;
     DatePickerDialog.OnDateSetListener date;
     Calendar myCalendar;
-    String selectedCity;
+    static String selectedCity;
     String selectedService;
     String selectedDeliveryMode;
     String selectedPackageType;
@@ -65,6 +68,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     Double longitude;
     private GoogleApiClient mGoogleApiClient;
     boolean addressEnabled = false;
+    DialogFragment dialogFragment;
 
     public static RegistrationFragment newInstance() {
         return new RegistrationFragment();
@@ -96,35 +100,33 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         editText6 = rootView.findViewById(R.id.editText6);
         editText7 = rootView.findViewById(R.id.editText7);
         editText7.setOnClickListener(viewClickListener);
+        editText8 = rootView.findViewById(R.id.editText8);
+        editText8.setOnClickListener(viewClickListener);
         gpsAddress = rootView.findViewById(R.id.gpsAddress);
         spinner1 = rootView.findViewById(R.id.spinner1);
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.city_array));
+        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, getActivity().getResources().getStringArray(R.array.service_array));
         spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item);
         spinner1.setBackgroundResource(R.drawable.spinner_text_selection_style);
         spinner1.setAdapter(spinnerArrayAdapter1);
         spinner1.setOnItemSelectedListener(this);
         spinner2 = rootView.findViewById(R.id.spinner2);
-        ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.service_array));
+        ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, getActivity().getResources().getStringArray(R.array.mode_of_delivery_array));
         spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinner_item);
         spinner2.setBackgroundResource(R.drawable.spinner_text_selection_style);
         spinner2.setAdapter(spinnerArrayAdapter2);
         spinner2.setOnItemSelectedListener(this);
         spinner3 = rootView.findViewById(R.id.spinner3);
-        ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.mode_of_delivery_array));
+        ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, getActivity().getResources().getStringArray(R.array.package_type_array));
         spinnerArrayAdapter3.setDropDownViewResource(R.layout.spinner_item);
         spinner3.setBackgroundResource(R.drawable.spinner_text_selection_style);
         spinner3.setAdapter(spinnerArrayAdapter3);
         spinner3.setOnItemSelectedListener(this);
-        spinner4 = rootView.findViewById(R.id.spinner4);
-        ArrayAdapter<String> spinnerArrayAdapter4 = new ArrayAdapter<>(getActivity(),R.layout.spinner_item,getActivity().getResources().getStringArray(R.array.package_type_array));
-        spinnerArrayAdapter4.setDropDownViewResource(R.layout.spinner_item);
-        spinner4.setBackgroundResource(R.drawable.spinner_text_selection_style);
-        spinner4.setAdapter(spinnerArrayAdapter4);
-        spinner4.setOnItemSelectedListener(this);
         button1 = rootView.findViewById(R.id.button1);
         button1.setOnClickListener(viewClickListener);
         button2 = rootView.findViewById(R.id.button2);
         button2.setOnClickListener(viewClickListener);
+        button = rootView.findViewById(R.id.button);
+        button.setOnClickListener(viewClickListener);
         date = utils.setDate(myCalendar, editText7);
         return rootView;
     }
@@ -143,6 +145,10 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                 case R.id.button2:
                     clearFields();
                     break;
+
+                case R.id.button:
+                    showCity();
+                    break;
             }
         }
     };
@@ -152,15 +158,12 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         Spinner spinner = (Spinner) adapterView;
         switch (spinner.getId()) {
             case R.id.spinner1:
-                selectedCity = adapterView.getItemAtPosition(position).toString();
-                break;
-            case R.id.spinner2:
                 selectedService = adapterView.getItemAtPosition(position).toString();
                 break;
-            case R.id.spinner3:
+            case R.id.spinner2:
                 selectedDeliveryMode = adapterView.getItemAtPosition(position).toString();
                 break;
-            case R.id.spinner4:
+            case R.id.spinner3:
                 selectedPackageType = adapterView.getItemAtPosition(position).toString();
                 break;
 
@@ -204,21 +207,24 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
             Toast.makeText(getActivity(), R.string.email_error, Toast.LENGTH_SHORT).show();
         } else if (editText7.getText().toString().matches("")) {
             Toast.makeText(getActivity(), R.string.date_error, Toast.LENGTH_SHORT).show();
+        } else if (editText8.getText().toString().matches("")) {
+            Toast.makeText(getActivity(), R.string.venue_error, Toast.LENGTH_SHORT).show();
         } else if (editText5.getText().toString().trim().length() < 10) {
             Toast.makeText(getActivity(), R.string.mobile_validate_error, Toast.LENGTH_SHORT).show();
-        } else if(!utils.isEmailValid(editText6.getText().toString())) {
+        } else if (!utils.isEmailValid(editText6.getText().toString())) {
             Toast.makeText(getActivity(), R.string.email_validate_error, Toast.LENGTH_SHORT).show();
         } else {
-            if(addressEnabled) {
+            if (addressEnabled) {
+                details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + gpsAddress.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
+                        + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
+                        + "Venue : " + editText8.getText().toString() + "\n" + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
+            } else {
                 details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + editText2.getText().toString() + "\n" + "Locality : " + editText3.getText().toString() +
                         "\n" + "City : " + selectedCity + "\n" + "PinCode : " + editText4.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
                         + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
-                        + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
-            } else {
-                details = "Name : " + editText1.getText().toString() + "\n" + "Address : " + gpsAddress.getText().toString() + "\n" + "MobileNumber : " + editText5.getText().toString() + "\n"
-                        + "Email ID : " + editText6.getText().toString() + "\n" + "Service : " + selectedService + "\n" + "Function Date : " + editText7.getText().toString() + "\n"
-                        + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
+                        + "Venue : " + editText8.getText().toString() + "\n" + "Mode of Delivery : " + selectedDeliveryMode + "\n" + "Selected Package: " + selectedPackageType + "\n";
             }
+
             utils.showPrice(details, getActivity().getResources().getString(R.string.alert_registration_module_name), selectedPackageType);
         }
     }
@@ -231,17 +237,34 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         editText5.setText("");
         editText6.setText("");
         editText7.setText("");
+        editText8.setText("");
         spinner1.setSelection(0);
         spinner2.setSelection(0);
         spinner3.setSelection(0);
-        spinner4.setSelection(0);
+        button.setText(R.string.city_button);
+    }
+
+    private void showCity() {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+        dialogFragment = WebViewFragment.newInstance();
+        dialogFragment.show(ft, "dialog");
+    }
+
+    static void dismissDialog(String districtName) {
+        button.setText(districtName);
+        selectedCity = districtName;
     }
 
     @Override
     public void onConnected(Bundle bundle) {
         if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
-            addressEnabled = true;
+            addressEnabled = false;
             return;
         }
         startLocationUpdates();
@@ -285,7 +308,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                 .setFastestInterval(FASTEST_INTERVAL);
         if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             enableAddressFields();
-            addressEnabled = true;
+            addressEnabled = false;
             return;
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -299,10 +322,10 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         if (address.equalsIgnoreCase("No Address Returned") ||
                 address.equalsIgnoreCase("Cannot Find Address")) {
             enableAddressFields();
-            addressEnabled = true;
+            addressEnabled = false;
         } else {
             disableAddressFields();
-            addressEnabled = false;
+            addressEnabled = true;
         }
     }
 
