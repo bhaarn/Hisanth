@@ -23,8 +23,6 @@ import android.widget.Toast;
 import com.padhuga.hishanth.R;
 import com.padhuga.hishanth.activities.MainActivity;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -125,6 +123,7 @@ public class Utils {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
         dialog.setTitle(title)
                 .setMessage(message)
+                .setView(R.layout.activity_main)
                 .setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
@@ -152,6 +151,8 @@ public class Utils {
                 break;
             case "registration":
             case "corporate_packages":
+            case "personal_packages":
+            case "customized_packages":
                 sendEmail(details);
                 break;
         }
@@ -207,16 +208,43 @@ public class Utils {
         TextView tax = view.findViewById(R.id.tax);
         TextView discount = view.findViewById(R.id.discount);
         TextView final_price = view.findViewById(R.id.final_price);
-        if(packageType.equals("Traditional Package")) {
-            price.setText("50000.00");
-            tax.setText("256.00");
-            discount.setText("0.00");
-            final_price.setText("50256.00");
-        } else if(packageType.equals("Premium Package")){
-            price.setText("75000.00");
-            tax.setText("256.00");
-            discount.setText("0.00");
-            final_price.setText("75256.00");
+        switch (packageType) {
+            case "Traditional Package":
+                price.setText("50000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("50256.00");
+                break;
+            case "Premium Package":
+                price.setText("75000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("75256.00");
+                break;
+            case "Personal Package":
+                price.setText("50000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("50256.00");
+                break;
+            case "Corporate Package":
+                price.setText("75000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("75256.00");
+                break;
+            case "Customized Package":
+                price.setText("20000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("20256.00");
+                break;
+            default:
+                price.setText("75000.00");
+                tax.setText("256.00");
+                discount.setText("0.00");
+                final_price.setText("75256.00");
+                break;
         }
     }
 

@@ -22,7 +22,6 @@
                 <android.support.v7.widget.AppCompatSpinner
                     android:id="@+id/spinner1"
                     style="@style/SpinnerStyle"
-                    android:entries="@array/corporate_services_array"
                     android:prompt="@string/services_hint" />
 
             </LinearLayout>

@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LinearLayoutStyleVertical">
+
+    <android.support.v7.widget.CardView style="@style/CardViewStyle"
+        android:layout_gravity="center">
+
+        <TextView
+            style="@style/RegistrationTextViewStyle"
+            android:text="@string/disclaimer4" />
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

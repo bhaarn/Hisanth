@@ -123,14 +123,14 @@ public class PersonalPackagesFragment extends Fragment implements AdapterView.On
             String details;
             if (editText1.getVisibility() == View.VISIBLE) {
                 details = "Service : " + selectedService + "\n" + "Total Count : " + editText1.getText().toString() + "\n" + "Event Date : " + editText2.getText().toString() + "\n" +
-                        "Venue : " + editText2.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
+                        "Venue : " + editText3.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
                         + "Email ID : " + editText5.getText().toString() + "\n";
             } else {
                 details = "Service : " + selectedService + "\n" + "Event Date : " + editText2.getText().toString() + "\n" +
-                        "Venue : " + editText2.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
+                        "Venue : " + editText3.getText().toString() + "\n" + "MobileNumber : " + editText4.getText().toString() + "\n"
                         + "Email ID : " + editText5.getText().toString() + "\n";
             }
-            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_corporate_services_module_name), "");  // Bharani - Needs to fix this
+            utils.showPrice(details, getActivity().getResources().getString(R.string.alert_personal_services_module_name), "Personal Package");
         }
     }
 

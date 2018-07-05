@@ -55,7 +55,6 @@
     <string name="about_us3">We believe in referral clients and work to the utmost satisfaction of our client and their near and dear.</string>
     <string name="disclaimer1">Feel free to ask Customized package which match your budget from Customized Packages Tab. \n The final package price won\'t be negotiable. \n We believe that there is no discount in our hard work</string>
     <string name="disclaimer2">If you want demo videos, feel free to ask us and we will show you in our office. \n No Demo videos will be posted Online or in Application. \n We believe that customer privacy is very important</string>
-
     <string name="disclaimer3">We require 50% of the selected package cost and 100% of the travel cost (If applicable) to finalize the date. This advance is non-refundable because
         when we commit dates to you, we turn away other enquiries and lose potential business. Another 40% is required on the event day as 2nd advance and the balance 10% on delivery
         of albums and videos.</string>
@@ -188,16 +187,22 @@
     <string name="venue_hint">Please Enter Venue Details</string>
     <string name="venue_error">You did not enter the Venue Address</string>
     <string name="alert_corporate_services_module_name">corporate_packages</string>
+    <string name="alert_personal_services_module_name">personal_packages</string>
+    <string name="alert_customized_services_module_name">customized_packages</string>
     <string name="number_of_students">Total Number of Students</string>
     <string name="number_of_employees">Total Number of Employees</string>
     <string name="number_of_people">Total Number of People</string>
     <string name="number_of_cards">Total Number of Cards</string>
     <string name="number_of_banners">Total Number of Banners</string>
+    <string name="budget">Overall Budget</string>
+    <string name="budget_error">You did not enter the Budget</string>
     <string name="number_of_students_hint">Count of Students</string>
     <string name="number_of_employees_hint">Count of Employees</string>
     <string name="number_of_people_hint">Count of People</string>
     <string name="number_of_cards_hint">Count of Cards</string>
     <string name="number_of_banners_hint">Count of Banners</string>
+    <string name="budget_hint">Please specify your overall Budget</string>
+
 
     <string name="contact_us">Contact Us</string>
     <string name="mail_id">Our Mail ID : (Click to Send Mail To Us) \n hisanthphotography@gmail.com</string>
