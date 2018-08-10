@@ -32,3 +32,8 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+          deployment:
+    alpha:
+        branch: master
+        commands:
+           - ./gradlew publishApkProductionRelease
