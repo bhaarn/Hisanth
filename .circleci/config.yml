@@ -32,8 +32,7 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-    deployment:
-      - alpha:
+      - run:
+          name: Deployment to PlayStore
           branch: master
-          commands:
-           - ./gradlew publishApkProductionRelease
+          command: ./gradlew publishApkProductionRelease
