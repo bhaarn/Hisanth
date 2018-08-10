@@ -1,35 +1,68 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
+
+def appLibs = rootProject.ext.appLibraries;
 
 android {
-    compileSdkVersion 27
+
+    playAccountConfigs {
+        defaultAccountConfig {
+            serviceAccountEmail = "hisanth@api-6093577606854825986-243669.iam.gserviceaccount.com"
+            jsonFile = file("../hisanth_json_key.json")
+        }
+    }
+
+    compileSdkVersion 28
     defaultConfig {
+        playAccountConfig = playAccountConfigs.defaultAccountConfig
         applicationId "com.padhuga.hishanth"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 13
         versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
         release {
+            storeFile file("../hishanth")
+            storePassword "Padhuga@555"
+            keyAlias "hishanth"
+            keyPassword "Padhuga@555"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation "com.android.support:customtabs:27.1.1"
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.google.firebase:firebase-ads:15.0.1'
-    implementation 'com.android.support:cardview-v7:27.1.1'
-    implementation 'com.google.android.gms:play-services-maps:15.0.1'
-    implementation 'com.google.android.gms:play-services-location:15.0.1'
-    testImplementation 'junit:junit:4.12'
+play {
+    track = 'production'
 }
 
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "com.android.support:appcompat-v7:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:support-v4:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:support-media-compat:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:customtabs:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:design:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:cardview-v7:${appLibs.ANDROID_SUPPORT_VERSION}"
+
+    implementation "com.google.firebase:firebase-ads:${appLibs.FIREBASE_SUPPORT_VERSION}"
+    implementation "com.google.android.gms:play-services-maps:${appLibs.FIREBASE_SUPPORT_VERSION}"
+    implementation "com.google.android.gms:play-services-location:${appLibs.FIREBASE_SUPPORT_VERSION}"
+
+    testImplementation "junit:junit:${appLibs.JUNIT_VERSION}"
+}
 
 apply plugin: 'com.google.gms.google-services'

@@ -35,4 +35,4 @@ jobs:
       - run:
           name: Deployment to PlayStore
           branch: master
-          command: ./gradlew publishApkProductionRelease
+          command: ./gradlew publishRelease
